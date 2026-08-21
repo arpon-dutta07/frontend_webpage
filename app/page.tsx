@@ -61,34 +61,38 @@ export default function HomePage() {
           </div>
 
           {/* Color Palettes */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 mb-12">
             <div className="p-4 bg-ink text-paper border border-line flex flex-col justify-between h-28 clip-chamfer-br">
-              <span className="font-mono text-[10px] text-muted-on-dark uppercase">--ink</span>
-              <span className="font-mono text-xs font-bold">#0E0F11</span>
+              <span className="font-mono text-[10px] uppercase opacity-80">--ink</span>
+              <span className="font-mono text-xs font-bold">PRIMARY TEXT</span>
             </div>
             <div className="p-4 bg-paper text-ink border border-line flex flex-col justify-between h-28">
               <span className="font-mono text-[10px] text-muted uppercase">--paper</span>
-              <span className="font-mono text-xs font-bold">#F4F1EC</span>
+              <span className="font-mono text-xs font-bold">BASE SURFACE</span>
             </div>
             <div className="p-4 bg-accent text-white flex flex-col justify-between h-28 clip-chamfer-br">
               <span className="font-mono text-[10px] text-white/80 uppercase">--accent</span>
-              <span className="font-mono text-xs font-bold">#C6501F</span>
+              <span className="font-mono text-xs font-bold">EMBER BRAND</span>
+            </div>
+            <div className="p-4 bg-[var(--neon,#D4FF3D)] text-[#121316] flex flex-col justify-between h-28 clip-chamfer-br">
+              <span className="font-mono text-[10px] uppercase font-bold opacity-80">--neon</span>
+              <span className="font-mono text-xs font-bold">DARK ACCENT</span>
             </div>
             <div className="p-4 bg-accent-2 text-white flex flex-col justify-between h-28">
               <span className="font-mono text-[10px] text-white/80 uppercase">--accent-2</span>
-              <span className="font-mono text-xs font-bold">#5B6470</span>
+              <span className="font-mono text-xs font-bold">STEEL ACCENT</span>
             </div>
             <div className="p-4 bg-line text-ink flex flex-col justify-between h-28">
               <span className="font-mono text-[10px] text-muted uppercase">--line</span>
-              <span className="font-mono text-xs font-bold">#D8D4CC</span>
+              <span className="font-mono text-xs font-bold">GRID DIVIDER</span>
             </div>
             <div className="p-4 bg-muted text-paper flex flex-col justify-between h-28">
               <span className="font-mono text-[10px] text-white/80 uppercase">--muted</span>
-              <span className="font-mono text-xs font-bold">#6B6862</span>
+              <span className="font-mono text-xs font-bold">MUTED BODY</span>
             </div>
             <div className="p-4 bg-surface-dark-card text-muted-on-dark flex flex-col justify-between h-28">
-              <span className="font-mono text-[10px] text-muted-on-dark uppercase">--muted-on-dark</span>
-              <span className="font-mono text-xs font-bold">#A9A9A6</span>
+              <span className="font-mono text-[10px] text-muted-on-dark uppercase">--surface-card</span>
+              <span className="font-mono text-xs font-bold">ELEVATION</span>
             </div>
           </div>
 

@@ -56,6 +56,21 @@
   z-index: 9999;
 }
 
+/* Dark Theme Neon Accents */
+[data-theme="dark"] .active-filter-indicator {
+  background-color: var(--neon) !important;
+}
+
+[data-theme="dark"] [data-state="active"].filter-tab-trigger,
+[data-theme="dark"] .filter-tab-trigger[data-state="active"] span {
+  color: #121316 !important;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  border-color: var(--neon) !important;
+  box-shadow: 0 0 24px rgba(212, 255, 61, 0.35) !important;
+}
+
 /* Lenis Recommended CSS */
 html.lenis, html.lenis body {
   height: auto;

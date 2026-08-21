@@ -7,7 +7,7 @@ import Button from "@/components/ui/Button";
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-paper border-t border-line-dark relative z-20 overflow-hidden">
+    <footer className="bg-paper text-ink border-t border-line relative z-20 overflow-hidden">
       {/* Upper Grid Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -20,17 +20,17 @@ export default function Footer() {
                   G
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-display font-black text-2xl tracking-tight text-paper">
+                  <span className="font-display font-black text-2xl tracking-tight text-ink">
                     {siteContent.brand.name}
                   </span>
-                  <span className="font-mono text-[10px] text-muted-on-dark tracking-widest uppercase">
+                  <span className="font-mono text-[10px] text-muted tracking-widest uppercase">
                     {siteContent.brand.tagline}
                   </span>
                 </div>
               </div>
 
               {/* Editorial Statement */}
-              <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-paper tracking-tight leading-tight max-w-xl">
+              <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-ink tracking-tight leading-tight max-w-xl">
                 {siteContent.footer.statement}
               </h3>
 
@@ -45,7 +45,7 @@ export default function Footer() {
             {/* Giant Monogram Outline Mark */}
             <div className="select-none pt-4 opacity-15 hover:opacity-25 transition-opacity">
               <svg
-                className="w-36 h-36 sm:w-48 sm:h-48 text-muted-on-dark"
+                className="w-36 h-36 sm:w-48 sm:h-48 text-muted"
                 viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,20 +70,20 @@ export default function Footer() {
           <div className="lg:col-span-5 flex flex-col justify-between space-y-12">
             {/* Quick Links List with Dividers */}
             <div className="space-y-1">
-              <span className="font-mono text-xs text-muted-on-dark tracking-wider uppercase block mb-4">
+              <span className="font-mono text-xs text-muted tracking-wider uppercase block mb-4">
                 INDEX / DIRECTORY
               </span>
-              <ul className="divide-y divide-line-dark/40 border-t border-b border-line-dark/40">
+              <ul className="divide-y divide-line border-t border-b border-line">
                 {siteContent.footer.links[0].items.map((item) => (
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="group flex items-center justify-between py-4 text-base sm:text-lg font-display font-bold text-paper hover:text-accent transition-colors duration-200"
+                      className="group flex items-center justify-between py-4 text-base sm:text-lg font-display font-bold text-ink hover:text-accent transition-colors duration-200"
                     >
                       <span className="tracking-wide group-hover:translate-x-1 transition-transform duration-200">
                         {item.label}
                       </span>
-                      <span className="font-mono text-xs text-muted-on-dark group-hover:text-accent transition-colors">
+                      <span className="font-mono text-xs text-muted group-hover:text-accent transition-colors">
                         →
                       </span>
                     </Link>
@@ -94,7 +94,7 @@ export default function Footer() {
 
             {/* Social Handles */}
             <div>
-              <span className="font-mono text-xs text-muted-on-dark tracking-wider uppercase block mb-4">
+              <span className="font-mono text-xs text-muted tracking-wider uppercase block mb-4">
                 COMMUNICATIONS
               </span>
               <div className="flex items-center gap-4">
@@ -104,7 +104,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 border border-line-dark hover:border-accent flex items-center justify-center text-muted-on-dark hover:text-accent hover:bg-surface-dark transition-all duration-200 clip-chamfer-br"
+                    className="w-10 h-10 border border-line hover:border-accent flex items-center justify-center text-muted hover:text-accent hover:bg-surface-light-card transition-all duration-200 clip-chamfer-br"
                     aria-label={social.name}
                   >
                     {social.name === "LinkedIn" && (
@@ -131,8 +131,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Legal / Copyright Bar */}
-      <div className="border-t border-line-dark/60 bg-surface-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-muted-on-dark tracking-wider">
+      <div className="border-t border-line bg-surface-light-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-muted tracking-wider">
           <div>{siteContent.footer.copyright}</div>
           <div className="flex items-center gap-6">
             {siteContent.footer.legal.map((item) => (

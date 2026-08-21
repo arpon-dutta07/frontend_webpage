@@ -15,6 +15,7 @@ const config: Config = {
           DEFAULT: "var(--accent)",
           hover: "var(--accent-hover)",
         },
+        neon: "var(--neon)",
         "accent-2": "var(--accent-2)",
         line: {
           DEFAULT: "var(--line)",
