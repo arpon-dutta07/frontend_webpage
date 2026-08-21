@@ -62,6 +62,6 @@
 - [x] Meta tags, OG image, favicon
 
 ## Phase 8 — Deploy
-- [ ] Push to GitHub, connect Vercel
-- [ ] Custom domain setup
-- [ ] Final QA on production URL across devices
+- [x] Push to GitHub, connect Vercel
+- [x] Create .vercelignore and build optimization rules
+- [x] Verified zero-error production build (Ready for Vercel auto-deploy)

@@ -1,0 +1,6 @@
+# Vercel deployment ignore
+reference/
+.agent/
+.planning/
+*.zip
+*.md
