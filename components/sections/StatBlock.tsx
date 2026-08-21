@@ -44,7 +44,7 @@ export default function StatBlock() {
                   <div
                     className={`h-full p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
                       isHighlight
-                        ? "bg-accent text-white shadow-lg clip-chamfer-tl-br"
+                        ? "bg-accent text-accent-text shadow-lg clip-chamfer-tl-br"
                         : "bg-surface-light-card text-ink border border-line hover:border-ink/40 clip-chamfer-tl-br"
                     }`}
                   >
@@ -56,12 +56,12 @@ export default function StatBlock() {
                           prefix={card.prefix}
                           suffix={card.suffix}
                           duration={1.6}
-                          className={isHighlight ? "text-white" : "text-ink"}
+                          className={isHighlight ? "text-accent-text" : "text-ink"}
                         />
                       </div>
                       <div
                         className={`h-0.5 w-8 ${
-                          isHighlight ? "bg-white/60" : "bg-accent"
+                          isHighlight ? "bg-accent-text/60" : "bg-accent"
                         }`}
                       />
                     </div>
@@ -70,14 +70,14 @@ export default function StatBlock() {
                     <div className="space-y-1">
                       <h4
                         className={`font-mono text-xs sm:text-sm font-bold uppercase tracking-wider ${
-                          isHighlight ? "text-white" : "text-ink"
+                          isHighlight ? "text-accent-text" : "text-ink"
                         }`}
                       >
                         {card.label}
                       </h4>
                       <p
                         className={`font-body text-xs ${
-                          isHighlight ? "text-white/80" : "text-muted"
+                          isHighlight ? "text-accent-text/80" : "text-muted"
                         }`}
                       >
                         {card.sub}

@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="space-y-8">
               {/* Brand Header */}
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-accent text-white flex items-center justify-center font-display font-black text-2xl clip-chamfer-br">
+                <div className="w-12 h-12 bg-accent text-accent-text flex items-center justify-center font-display font-black text-2xl clip-chamfer-br">
                   G
                 </div>
                 <div className="flex flex-col">

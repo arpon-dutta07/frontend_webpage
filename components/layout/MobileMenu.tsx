@@ -96,7 +96,7 @@ export default function MobileMenu() {
           {/* Header row with Close button */}
           <div className="flex items-center justify-between border-b border-line-dark pb-6">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-accent flex items-center justify-center font-display font-black text-white text-base">
+              <div className="w-8 h-8 bg-accent flex items-center justify-center font-display font-black text-accent-text text-base">
                 G
               </div>
               <span className="font-display font-black text-paper tracking-tight text-lg">

@@ -14,6 +14,12 @@ const config: Config = {
         accent: {
           DEFAULT: "var(--accent)",
           hover: "var(--accent-hover)",
+          text: "var(--accent-text)",
+        },
+        cta: {
+          DEFAULT: "var(--accent)",
+          hover: "var(--accent-hover)",
+          text: "var(--accent-text)",
         },
         neon: "var(--neon)",
         "accent-2": "var(--accent-2)",

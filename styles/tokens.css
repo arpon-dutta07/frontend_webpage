@@ -4,6 +4,8 @@
   --paper: #F4F1EC;
   --accent: #C6501F;
   --accent-hover: #D85D26;
+  --accent-text: #FFFFFF;
+  --cta-text: #FFFFFF;
   --accent-2: #5B6470;
   --line: #D8D4CC;
   --line-dark: rgba(255, 255, 255, 0.12);
@@ -26,8 +28,10 @@
 [data-theme="dark"] {
   --ink: #F4F1EC;
   --paper: #121316;
-  --accent: #E8703A;
-  --accent-hover: #F5834F;
+  --accent: #D4FF3D;
+  --accent-hover: #E8FF7A;
+  --accent-text: #121316;
+  --cta-text: #121316;
   --neon: #D4FF3D;
   --accent-2: #8891A0;
   --line: #2A2C31;

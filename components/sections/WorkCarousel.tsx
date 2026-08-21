@@ -128,7 +128,7 @@ export default function WorkCarousel() {
                         </h3>
                       </div>
 
-                      <div className="w-8 h-8 bg-accent text-white flex items-center justify-center font-mono text-sm font-bold group-hover:translate-x-1 transition-transform clip-chamfer-br">
+                      <div className="w-8 h-8 bg-accent text-accent-text flex items-center justify-center font-mono text-sm font-bold group-hover:translate-x-1 transition-transform clip-chamfer-br">
                         →
                       </div>
                     </div>

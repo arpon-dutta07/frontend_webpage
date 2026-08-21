@@ -57,7 +57,11 @@ export const metadata: Metadata = {
       "Precision structural engineering and editorial-grade architectural developments.",
   },
   icons: {
-    icon: "/icon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
