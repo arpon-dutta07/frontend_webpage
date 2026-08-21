@@ -1,0 +1,36 @@
+:root {
+  /* Slate & Ember Color Palette */
+  --ink: #0E0F11;
+  --paper: #F4F1EC;
+  --accent: #C6501F;
+  --accent-hover: #D85D26;
+  --accent-2: #5B6470;
+  --line: #D8D4CC;
+  --line-dark: rgba(255, 255, 255, 0.12);
+  --line-light: rgba(14, 15, 17, 0.12);
+  --muted: #6B6862;
+  --muted-on-dark: #A9A9A6;
+
+  /* Surfaces */
+  --surface-dark: #15171B;
+  --surface-dark-card: #1B1E24;
+  --surface-light-card: #ECE7DF;
+
+  /* Layout Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-medium: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Fluid Typography Helpers */
+.font-display {
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-body), "Inter", sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), "Space Mono", monospace;
+}
