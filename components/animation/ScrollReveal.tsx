@@ -26,11 +26,18 @@ export default function ScrollReveal({
     const el = elementRef.current;
     if (!el || typeof window === "undefined") return;
 
+    // Accessibility check: prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      // Keep static visibility without transform animation
+      return;
+    }
+
     let ctx = gsap.context(() => {
       if (variant === "scale-down") {
         gsap.fromTo(
           el,
-          { scale: 1.15, transformOrigin: "center center" },
+          { scale: 1.12, transformOrigin: "center center" },
           {
             scale: 1,
             duration,
@@ -52,7 +59,7 @@ export default function ScrollReveal({
       } else if (variant === "fade-up") {
         gsap.fromTo(
           el,
-          { y: 40, opacity: 0 },
+          { y: 35, opacity: 0 },
           {
             y: 0,
             opacity: 1,
@@ -69,9 +76,9 @@ export default function ScrollReveal({
       } else if (variant === "parallax") {
         gsap.fromTo(
           el,
-          { yPercent: -10 },
+          { yPercent: -8 },
           {
-            yPercent: 10,
+            yPercent: 8,
             ease: "none",
             scrollTrigger: {
               trigger: el,

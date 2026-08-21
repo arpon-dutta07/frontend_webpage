@@ -62,6 +62,14 @@ export interface SiteContent {
     image: string;
     cards: StatItem[];
   };
+  closingCta: {
+    eyebrow: string;
+    headline: string;
+    statement: string;
+    description: string;
+    cta: { label: string; href: string };
+    image: string;
+  };
   footer: {
     statement: string;
     links: {
@@ -200,6 +208,17 @@ export const siteContent: SiteContent = {
         sub: "Structural engineers & site directors",
       },
     ],
+  },
+  closingCta: {
+    eyebrow: "COLLABORATION & PROCUREMENT",
+    headline: "BUILD WITH AN INDUSTRIALIZED AND DIGITAL SYSTEM.",
+    statement: "PARTNER WITH A TEAM COMMITTED TO DELIVERING QUALITY, SAFETY, AND LONG-TERM VALUE — FROM GROUNDBREAKING TO COMPLETION.",
+    description: "From concept engineering to digital handover, GraviPoint transforms complex construction challenges into resilient, timeless architectural assets.",
+    cta: {
+      label: "REQUEST A CONSULTATION",
+      href: "/contact",
+    },
+    image: "/images/closing-cta.jpg",
   },
   footer: {
     statement: "BUILDING STRONGER FOUNDATIONS FOR BUSINESSES, COMMUNITIES, AND FUTURE GROWTH.",

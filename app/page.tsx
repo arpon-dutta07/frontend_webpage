@@ -8,6 +8,8 @@ import IntroStrip from "@/components/sections/IntroStrip";
 import ServicesAccordion from "@/components/sections/ServicesAccordion";
 import StatBlock from "@/components/sections/StatBlock";
 import WorkGrid from "@/components/sections/WorkGrid";
+import WorkCarousel from "@/components/sections/WorkCarousel";
+import ClosingCTA from "@/components/sections/ClosingCTA";
 import Footer from "@/components/layout/Footer";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
@@ -35,14 +37,20 @@ export default function HomePage() {
         {/* Phase 4: Work Grid Section (Filterable Portfolio) */}
         <WorkGrid />
 
-        {/* System Tokens & Design Specifications */}
+        {/* Phase 5: Work Carousel Section (Horizontal Recent Work) */}
+        <WorkCarousel />
+
+        {/* Phase 5: Closing CTA Section (Full Bleed Statement) */}
+        <ClosingCTA />
+
+        {/* System Architecture & Design System Reference */}
         <section id="tokens" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-b border-line">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-4 border-b border-line">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <Badge variant="accent">SYSTEM ARCHITECTURE</Badge>
+                <Badge variant="accent">SYSTEM BENCHMARKS</Badge>
                 <span className="font-mono text-xs text-muted tracking-wider">
-                  DESIGN TOKENS & BENCHMARKS
+                  DESIGN TOKENS & PERFORMANCE
                 </span>
               </div>
               <h2 className="font-display font-black text-fluid-h2 uppercase text-ink">

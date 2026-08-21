@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/animation/SmoothScrollProvider";
@@ -22,9 +22,43 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0E0F11",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
-  title: "GRAVIPOINT | Industrial & Architectural Systems",
-  description: "A bold, editorial, scroll-driven marketing platform for high-performance structural and architectural developments.",
+  title: "GRAVIPOINT | Industrial & Architectural Engineering Systems",
+  description:
+    "A bold editorial marketing platform delivering high-performance structural engineering, subterranean infrastructure, and parametric commercial developments.",
+  keywords: [
+    "Industrial Architecture",
+    "Structural Engineering",
+    "Commercial Construction",
+    "Infrastructure Development",
+    "4D BIM Sequencing",
+    "GraviPoint",
+  ],
+  authors: [{ name: "GraviPoint Systems" }],
+  openGraph: {
+    title: "GRAVIPOINT | Industrial & Architectural Systems",
+    description:
+      "Precision engineering, subterranean infrastructure, and monolithic commercial architecture built to perform for decades.",
+    type: "website",
+    locale: "en_US",
+    siteName: "GraviPoint",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GRAVIPOINT | Industrial & Architectural Systems",
+    description:
+      "Precision structural engineering and editorial-grade architectural developments.",
+  },
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

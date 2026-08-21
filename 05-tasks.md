@@ -36,30 +36,30 @@
   keyboard
 
 ## Phase 4 — Work Grid (filterable)
-- [ ] `FilterTabs` with Framer Motion sliding indicator
-- [ ] Grid of work items, filtered by category, hover zoom on image
-- [ ] Case study detail page `[slug]`
+- [x] `FilterTabs` with Framer Motion sliding indicator
+- [x] Grid of work items, filtered by category, hover zoom on image
+- [x] Case study detail page `[slug]`
 - **Checkpoint:** filter transitions smoothly (no layout jump), grid reflows correctly
   1-col mobile / 2-col tablet / 3-col desktop
 
 ## Phase 5 — Work Carousel + Closing CTA
-- [ ] Embla horizontal carousel, touch/swipe on mobile, arrow nav on desktop
-- [ ] Closing CTA full-bleed dark section
+- [x] Embla horizontal carousel, touch/swipe on mobile, arrow nav on desktop
+- [x] Closing CTA full-bleed dark section
 - **Checkpoint:** carousel swipe works on real mobile device, no horizontal page overflow
 
 ## Phase 6 — Contact Page
-- [ ] Form with react-hook-form + zod validation
-- [ ] Submit handler (route to chosen email/form service)
-- [ ] Success/error states
+- [x] Form with react-hook-form + zod validation
+- [x] Submit handler (route to chosen email/form service)
+- [x] Success/error states
 - **Checkpoint:** form validates client-side, submission works end-to-end
 
 ## Phase 7 — Polish Pass
-- [ ] Cross-browser check (Safari especially — clip-path + GSAP quirks)
-- [ ] Lighthouse pass — target 90+ performance, fix any CLS from animations
-- [ ] Reduce-motion media query fallback (`prefers-reduced-motion`) — disable/simplify
+- [x] Cross-browser check (Safari especially — clip-path + GSAP quirks)
+- [x] Lighthouse pass — target 90+ performance, fix any CLS from animations
+- [x] Reduce-motion media query fallback (`prefers-reduced-motion`) — disable/simplify
       GSAP animations for accessibility
-- [ ] Real content swap-in (replace all placeholder copy/images)
-- [ ] Meta tags, OG image, favicon
+- [x] Real content swap-in (replace all placeholder copy/images)
+- [x] Meta tags, OG image, favicon
 
 ## Phase 8 — Deploy
 - [ ] Push to GitHub, connect Vercel

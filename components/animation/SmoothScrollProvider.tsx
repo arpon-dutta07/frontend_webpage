@@ -26,7 +26,20 @@ export default function SmoothScrollProvider({ children }: SmoothScrollProviderP
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Initialize Lenis
+    // Accessibility check: prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      // Allow standard native scrolling without inertia physics
+      const handleNativeScroll = () => {
+        setScrollY(window.scrollY);
+        ScrollTrigger.update();
+      };
+      window.addEventListener("scroll", handleNativeScroll, { passive: true });
+      return () => window.removeEventListener("scroll", handleNativeScroll);
+    }
+
+    // Initialize Lenis for smooth inertia scrolling
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -52,7 +65,6 @@ export default function SmoothScrollProvider({ children }: SmoothScrollProviderP
     };
 
     gsap.ticker.add(updateTicker);
-    // Disable GSAP lag smoothing to ensure smooth physics sync
     gsap.ticker.lagSmoothing(0);
 
     return () => {
