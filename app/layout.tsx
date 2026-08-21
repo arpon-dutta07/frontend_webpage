@@ -72,6 +72,20 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${spaceGrotesk.variable} ${inter.variable} ${spaceMono.variable}`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function() {
+              try {
+                var storedTheme = localStorage.getItem('theme');
+                var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var theme = storedTheme ? storedTheme : (systemPrefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+              } catch (e) {}
+            })();`,
+          }}
+        />
+      </head>
       <body
         suppressHydrationWarning
         className="min-h-screen bg-paper text-ink selection:bg-accent selection:text-white antialiased font-body"

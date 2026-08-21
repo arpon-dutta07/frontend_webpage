@@ -6,6 +6,7 @@ import { useSmoothScroll } from "@/components/animation/SmoothScrollProvider";
 import { useUIStore } from "@/lib/store";
 import { siteContent } from "@/lib/content";
 import Button from "@/components/ui/Button";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Navbar() {
   const { scrollY } = useSmoothScroll();
@@ -52,8 +53,11 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop CTA & Mobile Toggle */}
-          <div className="flex items-center gap-4">
+          {/* Desktop CTA & Theme Toggle & Mobile Menu */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            {/* Theme Toggle Button */}
+            <ThemeToggle />
+
             <div className="hidden sm:block">
               <Button href={siteContent.cta.href} size="sm" variant="primary" chamfer>
                 {siteContent.cta.label}

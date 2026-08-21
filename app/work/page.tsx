@@ -28,7 +28,7 @@ export default function WorkPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projectsData.map((project) => (
-              <div key={project.id} className="p-6 bg-white border border-line flex flex-col justify-between">
+              <div key={project.id} className="p-6 bg-surface-light-card border border-line flex flex-col justify-between clip-chamfer-br">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <Badge variant="default">{project.category}</Badge>

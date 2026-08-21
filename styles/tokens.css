@@ -1,5 +1,5 @@
 :root {
-  /* Slate & Ember Color Palette */
+  /* Slate & Ember Light Theme (Default) */
   --ink: #0E0F11;
   --paper: #F4F1EC;
   --accent: #C6501F;
@@ -20,6 +20,25 @@
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-medium: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Slate & Ember Dark Theme Override */
+[data-theme="dark"] {
+  --ink: #F4F1EC;
+  --paper: #121316;
+  --accent: #E8703A;
+  --accent-hover: #F5834F;
+  --accent-2: #8891A0;
+  --line: #2A2C31;
+  --line-dark: rgba(255, 255, 255, 0.14);
+  --line-light: rgba(255, 255, 255, 0.08);
+  --muted: #9B9892;
+  --muted-on-dark: #A9A9A6;
+
+  /* Dark Surfaces */
+  --surface-dark: #0A0B0D;
+  --surface-dark-card: #16181D;
+  --surface-light-card: #1A1C22;
 }
 
 /* Fluid Typography Helpers */

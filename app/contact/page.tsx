@@ -143,7 +143,7 @@ export default function ContactPage() {
             </div>
 
             {/* Inquiry Form */}
-            <div className="lg:col-span-7 p-8 bg-white border border-line shadow-sm relative">
+            <div className="lg:col-span-7 p-8 bg-surface-light-card border border-line shadow-sm relative clip-chamfer-br">
               <h2 className="font-display font-bold text-2xl uppercase mb-6 text-ink">
                 REQUEST A CONSULTATION
               </h2>
