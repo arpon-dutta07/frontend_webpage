@@ -7,6 +7,7 @@ import Hero from "@/components/sections/Hero";
 import IntroStrip from "@/components/sections/IntroStrip";
 import ServicesAccordion from "@/components/sections/ServicesAccordion";
 import StatBlock from "@/components/sections/StatBlock";
+import WorkGrid from "@/components/sections/WorkGrid";
 import Footer from "@/components/layout/Footer";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
@@ -30,6 +31,9 @@ export default function HomePage() {
 
         {/* Phase 3: Stat Block Section */}
         <StatBlock />
+
+        {/* Phase 4: Work Grid Section (Filterable Portfolio) */}
+        <WorkGrid />
 
         {/* System Tokens & Design Specifications */}
         <section id="tokens" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-b border-line">
