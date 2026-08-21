@@ -20,10 +20,10 @@
   smoothly on mobile
 
 ## Phase 2 — Hero + Intro Strip
-- [ ] Hero section per PRD section 6, `SplitHeadline` stagger reveal on mount
-- [ ] Diagonal clip-path image panel, responsive fallback (stacked, no clip-path) below
+- [x] Hero section per PRD section 6, `SplitHeadline` stagger reveal on mount
+- [x] Diagonal clip-path image panel, responsive fallback (stacked, no clip-path) below
       `md` breakpoint
-- [ ] Intro/value strip (dark full-width section)
+- [x] Intro/value strip (dark full-width section)
 - **Checkpoint:** headline animates once on load only (not on every re-render), diagonal
   layout collapses cleanly on mobile, image doesn't distort
 

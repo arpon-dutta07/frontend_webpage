@@ -16,6 +16,22 @@ export interface SiteContent {
     label: string;
     href: string;
   };
+  hero: {
+    systemCode: string;
+    headline: string;
+    subhead: string;
+    description: string;
+    primaryCta: { label: string; href: string };
+    secondaryCta: { label: string; href: string };
+    image: string;
+  };
+  introStrip: {
+    eyebrow: string;
+    statement: string;
+    description: string;
+    cta: { label: string; href: string };
+    image: string;
+  };
   footer: {
     statement: string;
     links: {
@@ -44,6 +60,31 @@ export const siteContent: SiteContent = {
   cta: {
     label: "REQUEST A CONSULTATION",
     href: "/contact",
+  },
+  hero: {
+    systemCode: "SYS-01 // EDITORIAL",
+    headline: "SOLUTIONS BUILT FOR COMPLEX PROJECTS.",
+    subhead: "BUILT TO SUPPORT EVERY STAGE OF DEVELOPMENT.",
+    description: "From commercial developments to critical infrastructure, GraviPoint delivers architectural and structural engineering that balances precision, efficiency, and long-term performance.",
+    primaryCta: {
+      label: "EXPLORE SERVICES",
+      href: "/#services",
+    },
+    secondaryCta: {
+      label: "VIEW PORTFOLIO",
+      href: "/#work",
+    },
+    image: "/images/hero.jpg",
+  },
+  introStrip: {
+    eyebrow: "CORE MANDATE",
+    statement: "PARTNER WITH A TEAM COMMITTED TO SAFETY, QUALITY, AND LONG-TERM VALUE — FROM GROUNDBREAKING TO COMPLETION.",
+    description: "Our integrated methodology combines parametric structural analysis, digital prefabrication, and rigorous site orchestration.",
+    cta: {
+      label: "REQUEST A CONSULTATION",
+      href: "/contact",
+    },
+    image: "/images/intro-strip.jpg",
   },
   footer: {
     statement: "BUILDING STRONGER FOUNDATIONS FOR BUSINESSES, COMMUNITIES, AND FUTURE GROWTH.",

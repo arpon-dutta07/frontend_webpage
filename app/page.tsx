@@ -3,10 +3,11 @@
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import MobileMenu from "@/components/layout/MobileMenu";
+import Hero from "@/components/sections/Hero";
+import IntroStrip from "@/components/sections/IntroStrip";
 import Footer from "@/components/layout/Footer";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
-import { siteContent } from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -15,44 +16,27 @@ export default function HomePage() {
       <Navbar />
       <MobileMenu />
 
-      {/* Main Test / Preview Content for Phase 0 & Phase 1 Checkpoint */}
-      <main className="flex-1 pt-28 pb-20">
-        {/* Verification Hero Banner */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 border-b border-line">
-          <div className="flex items-center gap-3 mb-6">
-            <Badge variant="accent">PHASE 0 & 1 CHECKPOINT</Badge>
-            <span className="font-mono text-xs text-muted tracking-wider">
-              NEXT.JS 15 + SLATE & EMBER DESIGN SYSTEM
-            </span>
-          </div>
+      <main className="flex-1">
+        {/* Phase 2: Hero Section */}
+        <Hero />
 
-          <h1 className="font-display font-black text-fluid-h1 uppercase tracking-tighter text-ink mb-6 max-w-4xl">
-            PRECISION ENGINEERING & STRUCTURAL SYSTEMS.
-          </h1>
+        {/* Phase 2: Intro / Value Proposition Strip */}
+        <IntroStrip />
 
-          <p className="font-body text-fluid-body text-muted max-w-2xl mb-8 leading-relaxed">
-            {siteContent.brand.description} Testing fluid typography scales,
-            custom CSS tokens, Lenis smooth scrolling integration, responsive
-            navbar with dynamic scroll fade, mobile overlay menu, and the
-            editorial footer.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-4">
-            <Button href="#tokens" variant="primary" size="lg" chamfer>
-              EXPLORE DESIGN SYSTEM
-            </Button>
-            <Button href="#scroll-test" variant="outline" size="lg">
-              TEST SMOOTH SCROLL ↓
-            </Button>
-          </div>
-        </section>
-
-        {/* Design System Token Verification Section */}
-        <section id="tokens" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-b border-line">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="font-display font-black text-fluid-h2 uppercase text-ink">
-              COLOR & TYPOGRAPHY SYSTEM
-            </h2>
+        {/* Design System & Inertia Verification Section */}
+        <section id="tokens" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-b border-line">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-4 border-b border-line">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <Badge variant="accent">PHASE 2 VALIDATION</Badge>
+                <span className="font-mono text-xs text-muted tracking-wider">
+                  DESIGN TOKENS & SYSTEM BENCHMARKS
+                </span>
+              </div>
+              <h2 className="font-display font-black text-fluid-h2 uppercase text-ink">
+                SLATE & EMBER SPECIFICATIONS
+              </h2>
+            </div>
             <span className="font-mono text-xs text-muted">02-DESIGN-SYSTEM.MD</span>
           </div>
 
@@ -116,35 +100,34 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Tall Scroll Test Section (Validates Lenis Smooth Scroll + Navbar Scroll Trigger) */}
-        <section id="scroll-test" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="flex items-center gap-3 mb-6">
+        {/* Tall Scroll Inertia Verification Section */}
+        <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="flex items-center gap-3 mb-8">
             <Badge variant="outline">LENIS INERTIA SCROLL</Badge>
             <span className="font-mono text-xs text-muted">
-              SCROLL DOWN TO OBSERVE NAVBAR TRANSITION & 60FPS INERTIA
+              SMOOTH 60FPS SCROLL ENGINE WITH GSAP TICKER SYNC
             </span>
           </div>
 
-          <div className="space-y-8">
-            {[1, 2, 3].map((block) => (
+          <div className="space-y-6">
+            {[1, 2].map((block) => (
               <div
                 key={block}
                 className="p-8 sm:p-12 bg-white border border-line flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-accent/40 transition-colors"
               >
                 <div className="space-y-2 max-w-xl">
                   <span className="font-mono text-xs text-accent font-bold">
-                    STRUCTURAL BLOCK 0{block}
+                    SYSTEM BLOCK 0{block}
                   </span>
                   <h4 className="font-display font-bold text-xl sm:text-2xl uppercase">
-                    MODULAR INDUSTRIAL ARCHITECTURE & HIGH PERFORMANCE
+                    HIGH-PERFORMANCE STRUCTURAL ARCHITECTURE
                   </h4>
                   <p className="font-body text-sm text-muted">
-                    Demonstrating smooth inertia scrolling with Lenis and GSAP ticker sync.
-                    Scroll up and down to observe frictionless deceleration and zero layout jitter.
+                    Engineered to maintain smooth 60fps frame rates with zero layout shift during viewport navigation.
                   </p>
                 </div>
-                <Button variant="outline" size="sm">
-                  VIEW SPECIFICATION
+                <Button href="/contact" variant="outline" size="sm">
+                  CONNECT WITH TEAM
                 </Button>
               </div>
             ))}
