@@ -1,0 +1,84 @@
+@import "../styles/tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body), "Inter", sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Selection style */
+  ::selection {
+    background-color: var(--accent);
+    color: #FFFFFF;
+  }
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Chamfer / Cut corner utility classes */
+.clip-chamfer-br {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+}
+
+.clip-chamfer-tl-br {
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+}
+
+.clip-diagonal-hero {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+}
+
+@media (max-width: 768px) {
+  .clip-diagonal-hero {
+    clip-path: none;
+  }
+}
+
+/* Grid line styling */
+.border-grid-x {
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+}
+
+.border-grid-y {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
