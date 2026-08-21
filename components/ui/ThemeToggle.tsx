@@ -58,7 +58,7 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
           >
             {/* Moon Icon */}
             <svg
-              className="w-4 h-4 text-accent"
+              className="w-4 h-4 text-[var(--neon)]"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

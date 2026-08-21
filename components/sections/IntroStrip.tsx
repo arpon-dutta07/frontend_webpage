@@ -10,7 +10,7 @@ export default function IntroStrip() {
   const { introStrip } = siteContent;
 
   return (
-    <section className="relative bg-ink text-paper py-20 sm:py-28 overflow-hidden border-b border-line-dark">
+    <section className="relative bg-surface-dark text-white py-20 sm:py-28 overflow-hidden border-b border-line-dark">
       {/* Monolithic Background Texture Image with Atmospheric Overlay */}
       <div className="absolute inset-0 z-0">
         <ScrollReveal variant="parallax" className="relative w-full h-[120%] -top-[10%]">
@@ -22,7 +22,7 @@ export default function IntroStrip() {
             className="object-cover object-center opacity-25 filter contrast-125"
           />
         </ScrollReveal>
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-surface-dark via-surface-dark/90 to-surface-dark/75" />
         <div className="absolute inset-0 bg-radial-vignette opacity-60 pointer-events-none" />
       </div>
 
@@ -39,7 +39,7 @@ export default function IntroStrip() {
             </div>
 
             <ScrollReveal variant="fade-up">
-              <h2 className="font-display font-black text-2xl sm:text-3xl md:text-4xl text-paper uppercase tracking-tight leading-tight max-w-3xl">
+              <h2 className="font-display font-black text-2xl sm:text-3xl md:text-4xl text-white uppercase tracking-tight leading-tight max-w-3xl">
                 {introStrip.statement}
               </h2>
             </ScrollReveal>

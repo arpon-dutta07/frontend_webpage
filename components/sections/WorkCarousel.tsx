@@ -123,7 +123,7 @@ export default function WorkCarousel() {
                         <span className="font-mono text-[10px] text-muted-on-dark uppercase block">
                           {project.location} • {project.year}
                         </span>
-                        <h3 className="font-display font-black text-lg text-paper uppercase tracking-tight group-hover:text-accent transition-colors">
+                        <h3 className="font-display font-black text-lg text-white uppercase tracking-tight group-hover:text-accent transition-colors">
                           {project.title}
                         </h3>
                       </div>

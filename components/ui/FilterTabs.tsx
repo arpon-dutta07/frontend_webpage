@@ -35,14 +35,16 @@ export default function FilterTabs({
               <Tabs.Trigger
                 key={category}
                 value={category}
-                className={`relative px-4 py-2 font-mono text-xs uppercase tracking-wider font-bold transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
-                  isActive ? "text-white" : "text-muted hover:text-ink bg-transparent"
+                className={`filter-tab-trigger relative px-4 py-2 font-mono text-xs uppercase tracking-wider font-bold transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                  isActive
+                    ? "text-white"
+                    : "text-muted hover:text-ink bg-transparent"
                 }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeFilterIndicator"
-                    className="absolute inset-0 bg-accent clip-chamfer-br z-0"
+                    className="active-filter-indicator absolute inset-0 bg-accent clip-chamfer-br z-0"
                     transition={{
                       type: "spring",
                       stiffness: 400,

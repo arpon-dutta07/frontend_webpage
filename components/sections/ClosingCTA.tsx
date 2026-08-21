@@ -12,7 +12,7 @@ export default function ClosingCTA() {
   const { closingCta } = siteContent;
 
   return (
-    <section className="relative bg-ink text-paper py-24 sm:py-32 lg:py-40 overflow-hidden border-t border-line-dark">
+    <section className="relative bg-surface-dark text-white py-24 sm:py-32 lg:py-40 overflow-hidden border-t border-line-dark">
       {/* Monolithic Structural Perspective Background */}
       <div className="absolute inset-0 z-0">
         <ScrollReveal variant="parallax" className="relative w-full h-[120%] -top-[10%]">
@@ -24,7 +24,7 @@ export default function ClosingCTA() {
             className="object-cover object-center opacity-30 filter contrast-125"
           />
         </ScrollReveal>
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-surface-dark via-surface-dark/90 to-surface-dark/70" />
       </div>
 
       {/* Foreground Content */}
@@ -40,7 +40,7 @@ export default function ClosingCTA() {
             </div>
 
             <ScrollReveal variant="fade-up">
-              <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-paper uppercase tracking-tight leading-[1.02] max-w-3xl">
+              <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-[1.02] max-w-3xl">
                 {closingCta.headline}
               </h2>
             </ScrollReveal>
@@ -76,15 +76,15 @@ export default function ClosingCTA() {
 
             <div className="space-y-4 font-mono text-xs text-muted-on-dark divide-y divide-line-dark/60">
               <div className="pt-2">
-                <span className="text-paper font-bold block mb-1">PARAMETRIC ACCURACY</span>
+                <span className="text-white font-bold block mb-1">PARAMETRIC ACCURACY</span>
                 <span>Sub-millimeter BIM model validation across all engineering disciplines.</span>
               </div>
               <div className="pt-4">
-                <span className="text-paper font-bold block mb-1">SAFETY RECORD</span>
+                <span className="text-white font-bold block mb-1">SAFETY RECORD</span>
                 <span>Zero lost-time incident protocols enforced across all active sites.</span>
               </div>
               <div className="pt-4">
-                <span className="text-paper font-bold block mb-1">FIXED-PRICE CERTAINTY</span>
+                <span className="text-white font-bold block mb-1">FIXED-PRICE CERTAINTY</span>
                 <span>Transparent procurement frameworks eliminating mid-cycle variance.</span>
               </div>
             </div>

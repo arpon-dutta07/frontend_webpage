@@ -110,7 +110,7 @@ export default function WorkGrid() {
                         <span className="font-mono text-[10px] text-muted-on-dark uppercase block">
                           {project.location}
                         </span>
-                        <h3 className="font-display font-black text-lg sm:text-xl text-paper uppercase tracking-tight group-hover:text-accent transition-colors">
+                        <h3 className="font-display font-black text-lg sm:text-xl text-white uppercase tracking-tight group-hover:text-accent transition-colors">
                           {project.title}
                         </h3>
                       </div>

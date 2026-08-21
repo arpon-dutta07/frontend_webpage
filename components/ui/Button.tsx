@@ -34,7 +34,7 @@ export default function Button({
 
   const variantStyles = {
     primary:
-      "bg-accent hover:bg-accent-hover text-white shadow-sm hover:shadow active:scale-[0.98]",
+      "btn-primary bg-accent hover:bg-accent-hover text-white shadow-sm hover:shadow active:scale-[0.98] border border-transparent",
     secondary:
       "bg-ink text-paper hover:bg-surface-dark active:scale-[0.98]",
     outline:
