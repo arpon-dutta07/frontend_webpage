@@ -5,6 +5,8 @@ import Navbar from "@/components/layout/Navbar";
 import MobileMenu from "@/components/layout/MobileMenu";
 import Hero from "@/components/sections/Hero";
 import IntroStrip from "@/components/sections/IntroStrip";
+import ServicesAccordion from "@/components/sections/ServicesAccordion";
+import StatBlock from "@/components/sections/StatBlock";
 import Footer from "@/components/layout/Footer";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
@@ -23,14 +25,20 @@ export default function HomePage() {
         {/* Phase 2: Intro / Value Proposition Strip */}
         <IntroStrip />
 
-        {/* Design System & Inertia Verification Section */}
+        {/* Phase 3: Services Accordion Section */}
+        <ServicesAccordion />
+
+        {/* Phase 3: Stat Block Section */}
+        <StatBlock />
+
+        {/* System Tokens & Design Specifications */}
         <section id="tokens" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-b border-line">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-4 border-b border-line">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <Badge variant="accent">PHASE 2 VALIDATION</Badge>
+                <Badge variant="accent">SYSTEM ARCHITECTURE</Badge>
                 <span className="font-mono text-xs text-muted tracking-wider">
-                  DESIGN TOKENS & SYSTEM BENCHMARKS
+                  DESIGN TOKENS & BENCHMARKS
                 </span>
               </div>
               <h2 className="font-display font-black text-fluid-h2 uppercase text-ink">
@@ -97,40 +105,6 @@ export default function HomePage() {
                 TECHNICAL DATA • 100% RESPONSIVE • LAT: 43.6532° N
               </p>
             </div>
-          </div>
-        </section>
-
-        {/* Tall Scroll Inertia Verification Section */}
-        <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="flex items-center gap-3 mb-8">
-            <Badge variant="outline">LENIS INERTIA SCROLL</Badge>
-            <span className="font-mono text-xs text-muted">
-              SMOOTH 60FPS SCROLL ENGINE WITH GSAP TICKER SYNC
-            </span>
-          </div>
-
-          <div className="space-y-6">
-            {[1, 2].map((block) => (
-              <div
-                key={block}
-                className="p-8 sm:p-12 bg-white border border-line flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-accent/40 transition-colors"
-              >
-                <div className="space-y-2 max-w-xl">
-                  <span className="font-mono text-xs text-accent font-bold">
-                    SYSTEM BLOCK 0{block}
-                  </span>
-                  <h4 className="font-display font-bold text-xl sm:text-2xl uppercase">
-                    HIGH-PERFORMANCE STRUCTURAL ARCHITECTURE
-                  </h4>
-                  <p className="font-body text-sm text-muted">
-                    Engineered to maintain smooth 60fps frame rates with zero layout shift during viewport navigation.
-                  </p>
-                </div>
-                <Button href="/contact" variant="outline" size="sm">
-                  CONNECT WITH TEAM
-                </Button>
-              </div>
-            ))}
           </div>
         </section>
       </main>

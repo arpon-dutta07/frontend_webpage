@@ -4,6 +4,22 @@ export interface NavLink {
   badge?: string;
 }
 
+export interface ServiceItem {
+  id: string;
+  title: string;
+  summary: string;
+  deliverables: string[];
+}
+
+export interface StatItem {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+  sub: string;
+  highlight?: boolean;
+}
+
 export interface SiteContent {
   brand: {
     name: string;
@@ -31,6 +47,20 @@ export interface SiteContent {
     description: string;
     cta: { label: string; href: string };
     image: string;
+  };
+  services: {
+    tag: string;
+    headline: string;
+    subhead: string;
+    image: string;
+    items: ServiceItem[];
+  };
+  stats: {
+    tag: string;
+    headline: string;
+    description: string;
+    image: string;
+    cards: StatItem[];
   };
   footer: {
     statement: string;
@@ -85,6 +115,91 @@ export const siteContent: SiteContent = {
       href: "/contact",
     },
     image: "/images/intro-strip.jpg",
+  },
+  services: {
+    tag: "DISCIPLINE // 02",
+    headline: "END-TO-END CONSTRUCTION & ENGINEERING SOLUTIONS.",
+    subhead: "Built to support every stage of development. Our multidisciplinary teams provide construction, engineering, and project management tailored to the unique demands of each project.",
+    image: "/images/services.jpg",
+    items: [
+      {
+        id: "planning-feasibility",
+        title: "PLANNING & FEASIBILITY",
+        summary: "We assess project viability, map stakeholder requirements, and develop strategies that reduce risk before a single foundation is poured.",
+        deliverables: [
+          "Geotechnical & Environmental Site Analysis",
+          "Zoning, Code & Permitting Strategy",
+          "Parametric Massing & Structural Models",
+          "Lifecycle Carbon & Energy Feasibility",
+        ],
+      },
+      {
+        id: "budget-management",
+        title: "BUDGET & COST ESTIMATION",
+        summary: "Precision quantitative surveying and value engineering to optimize capital deployment and ensure predictable outcomes.",
+        deliverables: [
+          "Dynamic Quantitative Cost Schedules",
+          "Real-Time Supply Chain Price Indexing",
+          "Constructability & Value Optimization",
+          "Deterministic Contingency Modeling",
+        ],
+      },
+      {
+        id: "scheduling-coordination",
+        title: "SCHEDULING & COORDINATION",
+        summary: "Integrated 4D BIM schedule orchestration aligning on-site logistics, subcontractor workflows, and critical path milestones.",
+        deliverables: [
+          "4D BIM Construction Sequencing",
+          "Intermodal Logistics Routing & Staging",
+          "Multi-Trade Synchronous Scheduling",
+          "Live On-Site Telemetry & Variance Tracking",
+        ],
+      },
+      {
+        id: "quality-assurance",
+        title: "QUALITY ASSURANCE & STRUCTURAL INTEGRITY",
+        summary: "Continuous laser scanning verification, concrete stress telemetry, and architectural envelope testing throughout construction.",
+        deliverables: [
+          "Millimeter-Accurate As-Built Verification",
+          "Continuous Structural Stress & Tension Monitoring",
+          "Thermal, Acoustic & Moisture Barrier Audits",
+          "Complete Digital Twin Asset Handover",
+        ],
+      },
+    ],
+  },
+  stats: {
+    tag: "TRACK RECORD // PERFORMANCE",
+    headline: "CONSTRUCTION EXPERTISE BACKED BY DECADES OF PERFORMANCE.",
+    description: "GraviPoint partners with developers, institutions, and infrastructure authorities to deliver high-performance structural systems that stand the test of time.",
+    image: "/images/stats-atrium.jpg",
+    cards: [
+      {
+        value: 250,
+        suffix: "+",
+        label: "PROJECTS DELIVERED",
+        sub: "Across commercial & civil sectors",
+      },
+      {
+        value: 15,
+        suffix: "+",
+        label: "YEARS EXPERIENCE",
+        sub: "Unbroken high-safety record",
+        highlight: true,
+      },
+      {
+        value: 98,
+        suffix: "%",
+        label: "CLIENT SATISFACTION",
+        sub: "Institutional repeat partnerships",
+      },
+      {
+        value: 500,
+        suffix: "+",
+        label: "SPECIALIZED EXPERTS",
+        sub: "Structural engineers & site directors",
+      },
+    ],
   },
   footer: {
     statement: "BUILDING STRONGER FOUNDATIONS FOR BUSINESSES, COMMUNITIES, AND FUTURE GROWTH.",

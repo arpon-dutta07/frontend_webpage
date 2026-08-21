@@ -28,9 +28,9 @@
   layout collapses cleanly on mobile, image doesn't distort
 
 ## Phase 3 — Services Accordion + Stat Block
-- [ ] Services accordion (Radix) — expand/collapse, one open at a time or multiple, your
+- [x] Services accordion (Radix) — expand/collapse, one open at a time or multiple, your
       call
-- [ ] Stat block — 4 cards, `StatCounter` count-up triggered by ScrollTrigger on enter,
+- [x] Stat block — 4 cards, `StatCounter` count-up triggered by ScrollTrigger on enter,
       fires once
 - **Checkpoint:** counters animate only when scrolled into view, accordion accessible via
   keyboard
