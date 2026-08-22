@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/animation/SmoothScrollProvider";
+import Preloader from "@/components/ui/Preloader";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -82,8 +83,8 @@ export default function RootLayout({
             __html: `(function() {
               try {
                 var storedTheme = localStorage.getItem('theme');
-                var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                var theme = storedTheme ? storedTheme : (systemPrefersDark ? 'dark' : 'light');
+                var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+                var theme = storedTheme ? storedTheme : (systemPrefersDark.matches ? 'dark' : 'light');
                 document.documentElement.setAttribute('data-theme', theme);
               } catch (e) {}
             })();`,
@@ -94,6 +95,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className="min-h-screen bg-paper text-ink selection:bg-accent selection:text-white antialiased font-body"
       >
+        <Preloader />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
