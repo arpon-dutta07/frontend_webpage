@@ -40,7 +40,7 @@ export default function Button({
     outline:
       "bg-transparent border border-line hover:border-ink text-ink hover:bg-ink hover:text-paper active:scale-[0.98]",
     dark:
-      "bg-transparent border border-line-dark hover:border-white text-paper hover:bg-white hover:text-ink active:scale-[0.98]",
+      "bg-transparent border border-white/30 hover:border-white text-white hover:bg-white hover:text-neutral-950 active:scale-[0.98]",
     ghost:
       "bg-transparent text-ink hover:text-accent active:scale-[0.98]",
   };

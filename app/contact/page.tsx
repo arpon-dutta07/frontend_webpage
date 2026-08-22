@@ -154,7 +154,7 @@ export default function ContactPage() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="mb-8 p-6 bg-ink text-paper border-l-4 border-accent clip-chamfer-br space-y-2"
+                    className="mb-8 p-6 bg-surface-dark text-white border-l-4 border-accent clip-chamfer-br space-y-2"
                   >
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-accent inline-block" />

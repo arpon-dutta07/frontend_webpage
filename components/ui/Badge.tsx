@@ -17,7 +17,7 @@ export default function Badge({
   const variants = {
     default: "bg-paper text-ink border border-line",
     accent: "bg-accent text-accent-text",
-    dark: "bg-ink text-paper border border-line-dark",
+    dark: "bg-black/80 text-white border border-white/20",
     outline: "bg-transparent text-ink border border-line",
   };
 

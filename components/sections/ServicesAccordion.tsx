@@ -149,12 +149,12 @@ export default function ServicesAccordion() {
               </div>
 
               {/* Floating Bottom Card Label */}
-              <div className="absolute bottom-6 left-6 right-6 z-10 flex items-center justify-between bg-ink/90 backdrop-blur-md p-4 border border-line-dark text-paper">
+              <div className="absolute bottom-6 left-6 right-6 z-10 flex items-center justify-between bg-black/80 backdrop-blur-md p-4 border border-white/20 text-white">
                 <div>
                   <span className="font-mono text-[10px] text-accent uppercase block">
                     OPERATIONAL METHODOLOGY
                   </span>
-                  <span className="font-display font-bold text-sm sm:text-base text-paper uppercase">
+                  <span className="font-display font-bold text-sm sm:text-base text-white uppercase">
                     INTEGRATED PROJECT DELIVERY (IPD)
                   </span>
                 </div>
