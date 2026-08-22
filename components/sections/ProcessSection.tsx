@@ -13,10 +13,10 @@ export default function ProcessSection() {
   const [activeIdx, setActiveIdx] = useState(0);
 
   const phaseImages = [
-    "/images/hero.jpg",
-    "/images/services.jpg",
-    "/images/stats-atrium.jpg",
-    "/images/closing-cta.jpg",
+    "/images/process/phase-01-lidar-audit.jpg",
+    "/images/process/phase-02-bim-sequencing.jpg",
+    "/images/process/phase-03-modular-erection.jpg",
+    "/images/process/phase-04-digital-twin.jpg",
   ];
 
   const phaseDiagrams = [

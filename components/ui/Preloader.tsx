@@ -17,21 +17,41 @@ export default function Preloader() {
 
   useEffect(() => {
     let animationFrameId: number;
+    let isFullyLoaded = false;
     const startTime = performance.now();
-    const duration = 2700; // Smooth 2.7 - 3.0 second animation duration
+    const minDuration = 2200; // Minimum 2.2s for rich aesthetic presentation
+
+    const checkLoaded = () => {
+      if (document.readyState === "complete") {
+        isFullyLoaded = true;
+      }
+    };
+
+    checkLoaded();
+    window.addEventListener("load", () => {
+      isFullyLoaded = true;
+    });
 
     const updateProgress = (now: number) => {
       const elapsed = now - startTime;
-      const currentProgress = Math.min(100, Math.floor((elapsed / duration) * 100));
+      let currentProgress = Math.floor((elapsed / minDuration) * 90);
 
-      setProgress(currentProgress);
+      // If document is not fully ready yet, cap at 90% until window.onload fires
+      if (!isFullyLoaded && currentProgress > 90) {
+        currentProgress = 90;
+      } else if (isFullyLoaded && elapsed >= minDuration) {
+        currentProgress = 100;
+      }
 
-      if (currentProgress >= 75) setStatusIndex(3);
-      else if (currentProgress >= 50) setStatusIndex(2);
-      else if (currentProgress >= 25) setStatusIndex(1);
+      const displayProgress = Math.min(100, currentProgress);
+      setProgress(displayProgress);
+
+      if (displayProgress >= 75) setStatusIndex(3);
+      else if (displayProgress >= 50) setStatusIndex(2);
+      else if (displayProgress >= 25) setStatusIndex(1);
       else setStatusIndex(0);
 
-      if (currentProgress < 100) {
+      if (displayProgress < 100) {
         animationFrameId = requestAnimationFrame(updateProgress);
       } else {
         setTimeout(() => {
