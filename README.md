@@ -11,6 +11,12 @@
 **GRAVIPOINT** is a high-performance, editorial web platform engineered for industrial architecture, subterranean infrastructure, and parametric engineering practices. Designed with a **"Slate & Ember"** aesthetic system, it pairs brutalist geometry and chamfered architectural forms with fluid 60 FPS inertia scrolling, custom GSAP scroll orchestration, native 1080p drone video integration, staggered cascading text animations, and an instant anti-flash dual theme engine (Slate/Ember light mode & Deep Obsidian/Neon dark mode).
 
 ---
+<img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/ebb65f35-c477-4cfe-b0bb-952c3037a0b7" />
+<img width="1919" height="909" alt="image" src="https://github.com/user-attachments/assets/f539214b-ead8-40c2-8830-6c23a4c31675" />
+<img width="1919" height="914" alt="image" src="https://github.com/user-attachments/assets/dd8ffa85-045c-4865-aab9-58657b8e825b" />
+<img width="1919" height="901" alt="image" src="https://github.com/user-attachments/assets/11e82904-715c-4b72-84ca-0df86691fd10" />
+<img width="1919" height="904" alt="image" src="https://github.com/user-attachments/assets/52d599b2-8448-4a07-a0c3-11da9be02f87" />
+<img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/cc876e27-f0c0-4eac-a192-2e1d29f7b983" />
 
 ## 🏛️ Key Architectural Features
 
