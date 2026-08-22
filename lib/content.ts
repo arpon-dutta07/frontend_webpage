@@ -200,6 +200,7 @@ export const siteContent: SiteContent = {
         suffix: "%",
         label: "CLIENT SATISFACTION",
         sub: "Institutional repeat partnerships",
+        highlight: true,
       },
       {
         value: 500,

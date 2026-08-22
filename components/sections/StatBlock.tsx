@@ -34,12 +34,24 @@ export default function StatBlock() {
             {stats.cards.map((card, index) => {
               const isHighlight = card.highlight;
 
+              // Responsive ordering:
+              // Mobile: Base (0) -> Highlight (1) -> Base (3) -> Highlight (2)
+              // Desktop (2x2): Row 1: [Base (0), Highlight (1)] | Row 2: [Highlight (2), Base (3)]
+              const orderClass =
+                index === 0
+                  ? "order-1 sm:order-1"
+                  : index === 1
+                  ? "order-2 sm:order-2"
+                  : index === 2
+                  ? "order-4 sm:order-3"
+                  : "order-3 sm:order-4";
+
               return (
                 <ScrollReveal
                   key={card.label}
                   variant="fade-up"
                   delay={index * 0.08}
-                  className="h-full"
+                  className={`h-full ${orderClass}`}
                 >
                   <div
                     className={`h-full p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
