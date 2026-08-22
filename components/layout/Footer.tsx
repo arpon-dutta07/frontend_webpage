@@ -10,13 +10,13 @@ export default function Footer() {
     { number: "01", label: "SERVICES", href: "/#services", desc: "ENGINEERING & ADVISORY" },
     { number: "02", label: "PROJECTS", href: "/work", desc: "SELECTED PORTFOLIO" },
     { number: "03", label: "PROCESS", href: "/#process", desc: "4-PHASE METHODOLOGY" },
-    { number: "04", label: "TEAM", href: "/#team", desc: "SENIOR DIRECTORS" },
-    { number: "05", label: "CAREERS", href: "/#careers", desc: "OPEN OPPORTUNITIES" },
+    { number: "04", label: "ABOUT", href: "/#about", desc: "AUDITED METRICS" },
+    { number: "05", label: "TEAM", href: "/#team", desc: "SENIOR DIRECTORS" },
     { number: "06", label: "CONTACT", href: "/contact", desc: "DIRECT PROCUREMENT" },
   ];
 
   return (
-    <footer className="bg-paper text-ink border-t border-line relative z-20 overflow-hidden">
+    <footer className="sticky bottom-0 z-0 bg-paper text-ink border-t border-line overflow-hidden w-full">
       {/* Main Editorial Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

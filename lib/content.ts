@@ -143,7 +143,6 @@ export const siteContent: SiteContent = {
     { label: "PROCESS", href: "/#process" },
     { label: "ABOUT", href: "/#about" },
     { label: "TEAM", href: "/#team" },
-    { label: "CAREERS", href: "/#careers" },
     { label: "CONTACT", href: "/contact" },
   ],
   cta: {

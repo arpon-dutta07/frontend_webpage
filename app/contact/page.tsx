@@ -76,7 +76,7 @@ export default function ContactPage() {
       <Navbar />
       <MobileMenu />
 
-      <main className="flex-1 pt-32 pb-24">
+      <main className="flex-1 pt-32 pb-24 relative z-10 bg-paper shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="border-b border-line pb-8 mb-12">

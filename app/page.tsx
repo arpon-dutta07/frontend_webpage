@@ -11,18 +11,17 @@ import StatBlock from "@/components/sections/StatBlock";
 import WorkGrid from "@/components/sections/WorkGrid";
 import WorkCarousel from "@/components/sections/WorkCarousel";
 import TeamSection from "@/components/sections/TeamSection";
-import CareersSection from "@/components/sections/CareersSection";
 import ClosingCTA from "@/components/sections/ClosingCTA";
 import Footer from "@/components/layout/Footer";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-paper text-ink selection:bg-accent selection:text-white">
-      {/* Shared Navigation & Mobile Menu */}
+      {/* Shared Floating Glassmorphic Navigation & Mobile Menu */}
       <Navbar />
       <MobileMenu />
 
-      <main className="flex-1">
+      <main className="flex-1 relative z-10 bg-paper">
         {/* Phase 2: Hero Section */}
         <Hero />
 
@@ -32,7 +31,7 @@ export default function HomePage() {
         {/* Phase 3: Services Accordion Section (#services) */}
         <ServicesAccordion />
 
-        {/* Phase 3: Methodology / Process Section (#process) */}
+        {/* Phase 3: Interactive Methodology / Process Section (#process) */}
         <ProcessSection />
 
         {/* Phase 3: Stat Block Section (#about) */}
@@ -47,14 +46,11 @@ export default function HomePage() {
         {/* Phase 5: Leadership & Engineering Team (#team) */}
         <TeamSection />
 
-        {/* Phase 5: Careers & Talent (#careers) */}
-        <CareersSection />
-
         {/* Phase 5: Closing CTA Section */}
         <ClosingCTA />
       </main>
 
-      {/* Shared Footer */}
+      {/* Parallax / Sticky Reveal Footer */}
       <Footer />
     </div>
   );

@@ -38,7 +38,7 @@ export default async function CaseStudyPage({ params }: Props) {
       <Navbar />
       <MobileMenu />
 
-      <main className="flex-1 pt-28 sm:pt-36 pb-24">
+      <main className="flex-1 pt-28 sm:pt-36 pb-24 relative z-10 bg-paper shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb & Navigation Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-line pb-4 mb-8">
