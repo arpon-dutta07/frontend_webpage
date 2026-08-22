@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { TextReveal } from "@/components/ui/cascade-text";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline" | "dark" | "ghost";
@@ -21,8 +22,12 @@ export default function Button({
   chamfer = false,
   children,
   className = "",
+  onMouseEnter,
+  onMouseLeave,
   ...props
 }: ButtonProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   const baseStyles =
     "inline-flex items-center justify-center font-mono font-bold tracking-wider uppercase transition-all duration-300 group select-none relative overflow-hidden";
 
@@ -47,12 +52,36 @@ export default function Button({
 
   const chamferClass = chamfer ? "clip-chamfer-br" : "";
 
+  const handleMouseEnter = (e: React.MouseEvent<any>) => {
+    setIsHovered(true);
+    onMouseEnter?.(e as any);
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<any>) => {
+    setIsHovered(false);
+    onMouseLeave?.(e as any);
+  };
+
+  const isText = typeof children === "string";
+
   const content = (
     <>
-      <span className="relative z-10">{children}</span>
+      <span className="relative z-10 flex items-center">
+        {isText ? (
+          <TextReveal
+            text={children as string}
+            isHovered={isHovered}
+            staggerDelay={16}
+            duration={220}
+            className="tracking-wider"
+          />
+        ) : (
+          children
+        )}
+      </span>
       {showArrow && (
         <svg
-          className="w-3.5 h-3.5 relative z-10 transition-transform duration-300 ease-out group-hover:translate-x-1"
+          className="w-3.5 h-3.5 relative z-10 transition-transform duration-300 ease-out group-hover:translate-x-1 shrink-0"
           viewBox="0 0 14 14"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -72,6 +101,8 @@ export default function Button({
     return (
       <Link
         href={href}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         className={`${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${chamferClass} ${className}`}
       >
         {content}
@@ -81,6 +112,8 @@ export default function Button({
 
   return (
     <button
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className={`${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${chamferClass} ${className}`}
       {...props}
     >
