@@ -16,9 +16,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="sticky bottom-0 z-0 bg-paper text-ink border-t border-line overflow-hidden w-full">
-      {/* Main Editorial Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-16">
+    <footer className="sticky bottom-0 z-0 w-full bg-[#121316] text-white overflow-hidden border-t border-white/10">
+      {/* Main Editorial Grid with Top Clearance for Fixed Navbar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-16 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Brand Header, Massive Statement, & Action */}
           <div className="lg:col-span-6 flex flex-col justify-between space-y-10 sm:space-y-12">
@@ -29,21 +29,21 @@ export default function Footer() {
                   G
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-display font-black text-2xl tracking-tight text-ink">
+                  <span className="font-display font-black text-2xl tracking-tight text-white">
                     {siteContent.brand.name}
                   </span>
-                  <span className="font-mono text-[9px] text-muted tracking-widest uppercase">
+                  <span className="font-mono text-[9px] text-neutral-400 tracking-widest uppercase">
                     {siteContent.brand.tagline}
                   </span>
                 </div>
               </div>
 
               {/* Massive Editorial Headline */}
-              <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-ink uppercase tracking-tight leading-[1.02] max-w-xl">
+              <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight leading-[1.02] max-w-xl">
                 {siteContent.footer.statement}
               </h2>
 
-              <p className="font-body text-sm sm:text-base text-muted max-w-md leading-relaxed">
+              <p className="font-body text-sm sm:text-base text-neutral-400 max-w-md leading-relaxed">
                 Specialized in deep foundation engineering, long-span structural diagrids, and high-performance automated industrial logistics across Europe and North America.
               </p>
 
@@ -56,8 +56,8 @@ export default function Footer() {
             </div>
 
             {/* Social Channels Strip */}
-            <div className="space-y-3 pt-4 border-t border-line">
-              <span className="font-mono text-[10px] text-muted uppercase tracking-wider block">
+            <div className="space-y-3 pt-4 border-t border-white/10">
+              <span className="font-mono text-[10px] text-neutral-400 uppercase tracking-wider block">
                 COMMUNICATIONS & CHANNELS
               </span>
               <div className="flex flex-wrap gap-2.5">
@@ -67,7 +67,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3.5 py-1.5 bg-surface-light-card border border-line hover:border-accent text-ink hover:text-accent font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 clip-chamfer-br"
+                    className="px-3.5 py-1.5 bg-white/10 border border-white/15 hover:border-accent text-white hover:text-accent font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 clip-chamfer-br"
                   >
                     {social.name} ↗
                   </a>
@@ -78,8 +78,8 @@ export default function Footer() {
 
           {/* Right Column: Full-Width Divided Architectural Directory */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="flex items-center justify-between pb-2 border-b border-line">
-              <span className="font-mono text-xs text-muted font-bold tracking-widest uppercase">
+            <div className="flex items-center justify-between pb-2 border-b border-white/10">
+              <span className="font-mono text-xs text-neutral-400 font-bold tracking-widest uppercase">
                 INDEX / DIRECTORY
               </span>
               <span className="font-mono text-[10px] text-accent uppercase font-bold">
@@ -88,28 +88,28 @@ export default function Footer() {
             </div>
 
             {/* Clean, Divided Directory Rows with Smooth Hover Slides */}
-            <ul className="divide-y divide-line border-b border-line">
+            <ul className="divide-y divide-white/10 border-b border-white/10">
               {directoryItems.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="group flex items-center justify-between py-4 sm:py-5 px-3 hover:bg-surface-light-card/60 transition-all duration-300 clip-chamfer-br"
+                    className="group flex items-center justify-between py-4 sm:py-5 px-3 hover:bg-white/5 transition-all duration-300 clip-chamfer-br"
                   >
                     <div className="flex items-baseline gap-4 sm:gap-6">
-                      <span className="font-mono text-xs text-muted group-hover:text-accent font-bold transition-colors">
+                      <span className="font-mono text-xs text-neutral-400 group-hover:text-accent font-bold transition-colors">
                         {item.number}
                       </span>
                       <div>
-                        <span className="font-display font-black text-xl sm:text-2xl text-ink group-hover:text-accent tracking-tight uppercase group-hover:translate-x-2 inline-block transition-transform duration-300">
+                        <span className="font-display font-black text-xl sm:text-2xl text-white group-hover:text-accent tracking-tight uppercase group-hover:translate-x-2 inline-block transition-transform duration-300">
                           {item.label}
                         </span>
-                        <span className="hidden sm:inline-block font-mono text-[10px] text-muted ml-3 uppercase">
+                        <span className="hidden sm:inline-block font-mono text-[10px] text-neutral-400 ml-3 uppercase">
                           // {item.desc}
                         </span>
                       </div>
                     </div>
 
-                    <span className="font-mono text-sm text-muted group-hover:text-accent group-hover:translate-x-1 transition-all duration-300">
+                    <span className="font-mono text-sm text-neutral-400 group-hover:text-accent group-hover:translate-x-1 transition-all duration-300">
                       →
                     </span>
                   </Link>
@@ -120,9 +120,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Clean Bottom Coordinates & Legal Bar (No Copyright) */}
-      <div className="border-t border-line bg-surface-light-card/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-muted tracking-wider">
+      {/* Clean Bottom Coordinates & Legal Bar */}
+      <div className="border-t border-white/10 bg-black/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-neutral-400 tracking-wider">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-accent inline-block" />
             <span>ZÜRICH // TORONTO // LONDON • ISO 19650 & ISO 45001 COMPLIANT</span>

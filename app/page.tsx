@@ -21,7 +21,7 @@ export default function HomePage() {
       <Navbar />
       <MobileMenu />
 
-      <main className="flex-1 relative z-10 bg-paper">
+      <main className="flex-1 relative z-10 bg-paper shadow-[0_30px_60px_rgba(0,0,0,0.35)]">
         {/* Phase 2: Hero Section */}
         <Hero />
 
