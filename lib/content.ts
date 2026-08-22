@@ -20,6 +20,34 @@ export interface StatItem {
   highlight?: boolean;
 }
 
+export interface ProcessPhase {
+  step: string;
+  title: string;
+  headline: string;
+  description: string;
+  deliverables: string[];
+  metrics: string;
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  location: string;
+  credentials: string;
+  specialization: string;
+  projects: string[];
+}
+
+export interface CareerOpening {
+  id: string;
+  title: string;
+  department: string;
+  location: string;
+  type: string;
+  experience: string;
+  overview: string;
+}
+
 export interface SiteContent {
   brand: {
     name: string;
@@ -54,6 +82,25 @@ export interface SiteContent {
     subhead: string;
     image: string;
     items: ServiceItem[];
+  };
+  process: {
+    tag: string;
+    headline: string;
+    subhead: string;
+    phases: ProcessPhase[];
+  };
+  team: {
+    tag: string;
+    headline: string;
+    subhead: string;
+    members: TeamMember[];
+  };
+  careers: {
+    tag: string;
+    headline: string;
+    subhead: string;
+    openings: CareerOpening[];
+    perks: { title: string; desc: string }[];
   };
   stats: {
     tag: string;
@@ -92,7 +139,10 @@ export const siteContent: SiteContent = {
   navigation: [
     { label: "WORK", href: "/#work" },
     { label: "SERVICES", href: "/#services" },
+    { label: "PROCESS", href: "/#process" },
     { label: "ABOUT", href: "/#about" },
+    { label: "TEAM", href: "/#team" },
+    { label: "CAREERS", href: "/#careers" },
     { label: "CONTACT", href: "/contact" },
   ],
   cta: {
@@ -176,6 +226,155 @@ export const siteContent: SiteContent = {
       },
     ],
   },
+  process: {
+    tag: "METHODOLOGY // 03",
+    headline: "A RIGOROUS, 4-PHASE ENGINEERING LIFECYCLE.",
+    subhead: "From subterranean risk audits to automated 4D digital twins, our structural execution model ensures sub-millimeter tolerances on mission-critical assets.",
+    phases: [
+      {
+        step: "PHASE 01",
+        title: "COMPUTATIONAL SITE & RISK AUDIT",
+        headline: "Geotechnical telemetry, zoning parameters, and structural loads.",
+        description:
+          "We perform deep LiDAR terrain scans, seismic soil attenuation studies, and wind tunnel aero-elastic simulations to eliminate engineering blind spots prior to mobilization.",
+        deliverables: [
+          "LiDAR Sub-Surface Point Cloud Models",
+          "Finite Element Wind & Seismic Stress Analysis",
+          "Soil Liquefaction & Hydrostatic Pressure Mapping",
+        ],
+        metrics: "TOLERANCE ±0.5mm",
+      },
+      {
+        step: "PHASE 02",
+        title: "PARAMETRIC 4D BIM SEQUENCING",
+        headline: "Time-synchronized clash detection and supply-chain scheduling.",
+        description:
+          "Every structural beam, rebar cage, and mechanical conduit is modeled in full 4D temporal space to identify constructability clashes months before physical site delivery.",
+        deliverables: [
+          "ISO 19650 Level 3 BIM Model",
+          "Dynamic Critical Path Schedule (CPM)",
+          "Prefabricated Sub-Assembly Logistics Staging",
+        ],
+        metrics: "ZERO CLASH THRESHOLD",
+      },
+      {
+        step: "PHASE 03",
+        title: "PRECISION MODULAR ERECTION",
+        headline: "Off-site prefabrication meets heavy crane orchestration.",
+        description:
+          "High-strength post-tensioned slabs and modular composite steel trusses are fabricated in climate-controlled environments, accelerating on-site erection by up to 40%.",
+        deliverables: [
+          "Continuous Flight Auger (CFA) Pile Telemetry",
+          "Cast-in-Place High-Strength Concrete Audits",
+          "Tower Crane Load Path & Rigging Simulation",
+        ],
+        metrics: "40% FASTER TIMELINE",
+      },
+      {
+        step: "PHASE 04",
+        title: "TELEMETRY & DIGITAL TWIN HANDOVER",
+        headline: "Live sensor telemetry embedded in structural elements.",
+        description:
+          "We install fiber-optic strain gauges, vibration sensors, and thermal monitors within key structural nodes, handing over a live digital twin for 100-year predictive maintenance.",
+        deliverables: [
+          "Full Asset As-Built Digital Twin",
+          "Continuous IoT Sensor SCADA Integration",
+          "100-Year Structural Integrity Warranty Certificate",
+        ],
+        metrics: "100-YEAR LIFESPAN",
+      },
+    ],
+  },
+  team: {
+    tag: "LEADERSHIP // 04",
+    headline: "ENGINEERED BY INDUSTRY-LEADING SPECIALISTS.",
+    subhead: "Our senior directors bring decades of heavy infrastructure, commercial high-rise, and advanced computational engineering expertise across Europe and North America.",
+    members: [
+      {
+        name: "Dr. Elena Vance, Eur Ing",
+        role: "CHIEF STRUCTURAL ENGINEER",
+        location: "Zurich, Switzerland",
+        credentials: "ETH Zurich Ph.D. • 22 Yrs Experience",
+        specialization: "Long-Span Steel Diagrids & Seismic Dampers",
+        projects: ["Meridian Tower", "Apex Manufacturing"],
+      },
+      {
+        name: "Marcus Thorne, PE",
+        role: "DIRECTOR OF HEAVY CIVIL & TUNNELING",
+        location: "Toronto, Canada",
+        credentials: "MIT M.Eng • 18 Yrs Experience",
+        specialization: "Subterranean Diaphragm Slurry Walls & Deep Piles",
+        projects: ["Eastline Transit", "Harbor District"],
+      },
+      {
+        name: "Dr. Aris Thorne, CEng",
+        role: "HEAD OF COMPUTATIONAL BIM & 4D SYSTEMS",
+        location: "London, United Kingdom",
+        credentials: "Imperial College London • 15 Yrs Experience",
+        specialization: "Parametric FEA Modeling & Laser Scan As-Builts",
+        projects: ["Meridian Tower", "North Corridor"],
+      },
+      {
+        name: "Sarah Jenkins, P.Eng",
+        role: "PRINCIPAL GEOTECHNICAL & MARINE DIRECTOR",
+        location: "Vancouver / Rotterdam",
+        credentials: "UBC M.Sc. • 16 Yrs Experience",
+        specialization: "Coastal Wave Surge & Sub-Arctic Tunnel Portals",
+        projects: ["Harbor District", "North Corridor"],
+      },
+    ],
+  },
+  careers: {
+    tag: "TALENT // 05",
+    headline: "BUILD THE NEXT GENERATION OF MEGA-STRUCTURES.",
+    subhead: "Join a multidisciplinary team operating at the intersection of parametric architecture, heavy structural engineering, and automated digital construction.",
+    openings: [
+      {
+        id: "senior-facade-engineer",
+        title: "Senior Facade & Envelope Engineer",
+        department: "Structural Engineering",
+        location: "Zurich, Switzerland / Hybrid",
+        type: "Full-Time",
+        experience: "7+ Years",
+        overview:
+          "Lead the structural analysis, thermal boundary modeling, and kinetic wind resistance design for high-rise commercial double-skin facades.",
+      },
+      {
+        id: "computational-bim-specialist",
+        title: "Lead Computational BIM & 4D Specialist",
+        department: "Digital Execution",
+        location: "London, UK / On-Site",
+        type: "Full-Time",
+        experience: "5+ Years",
+        overview:
+          "Architect automated Python/Rhino Grasshopper algorithms for clash detection, laser scan point cloud alignment, and 4D schedule simulation.",
+      },
+      {
+        id: "geotechnical-tunnel-director",
+        title: "Subterranean Geotechnical Project Director",
+        department: "Heavy Civil Infrastructure",
+        location: "Toronto, Canada / Hybrid",
+        type: "Full-Time",
+        experience: "10+ Years",
+        overview:
+          "Direct large-scale deep excavation, slurry wall engineering, and soil stabilization for subterranean multi-modal rail interchange projects.",
+      },
+    ],
+    perks: [
+      {
+        title: "GLOBAL MONUMENTAL PROJECTS",
+        desc: "Work on landmark skyscrapers, deep rail interchanges, and maritime ports that define cities.",
+      },
+      {
+        title: "RESEARCH & ADVANCED TOOLS",
+        desc: "Access proprietary parametric FEA clusters, high-precision LiDAR gear, and automated BIM toolchains.",
+      },
+      {
+        title: "EXECUTIVE COMPENSATION & MOBILITY",
+        desc: "Competitive compensation, international office mobility between Zurich, London, and Toronto, and full health coverage.",
+      },
+    ],
+  },
   stats: {
     tag: "TRACK RECORD // PERFORMANCE",
     headline: "CONSTRUCTION EXPERTISE BACKED BY DECADES OF PERFORMANCE.",
@@ -230,6 +429,7 @@ export const siteContent: SiteContent = {
           { label: "SERVICES", href: "/#services" },
           { label: "PROJECTS", href: "/#work" },
           { label: "PROCESS", href: "/#process" },
+          { label: "ABOUT", href: "/#about" },
           { label: "TEAM", href: "/#team" },
           { label: "CAREERS", href: "/#careers" },
           { label: "CONTACT", href: "/contact" },
@@ -243,8 +443,8 @@ export const siteContent: SiteContent = {
     ],
     copyright: `© ${new Date().getFullYear()} GRAVIPOINT. ALL RIGHTS RESERVED.`,
     legal: [
-      { label: "PRIVACY POLICY", href: "#privacy" },
-      { label: "TERMS & CONDITIONS", href: "#terms" },
+      { label: "PRIVACY POLICY", href: "/contact" },
+      { label: "TERMS & CONDITIONS", href: "/contact" },
     ],
   },
 };

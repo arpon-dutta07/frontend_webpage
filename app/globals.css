@@ -16,6 +16,8 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
   }
 
   body {
@@ -23,7 +25,15 @@
     color: var(--ink);
     min-height: 100vh;
     overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     transition: background-color 400ms ease, color 400ms ease;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+    height: 0px;
   }
 
   /* Selection style */
