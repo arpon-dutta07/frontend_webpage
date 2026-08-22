@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Badge from "@/components/ui/Badge";
 import ScrollReveal from "@/components/animation/ScrollReveal";
@@ -37,8 +38,8 @@ export default function TeamSection() {
           </div>
         </div>
 
-        {/* 4-Card Leadership Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4-Card Leadership Grid with Image Hover Glassmorphic Reveal */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {team.members.map((member, idx) => (
             <ScrollReveal
               key={member.name}
@@ -46,51 +47,90 @@ export default function TeamSection() {
               delay={idx * 0.08}
               className="h-full"
             >
-              <div className="h-full p-6 sm:p-8 bg-surface-light-card border border-line hover:border-accent transition-all duration-300 clip-chamfer-br flex flex-col justify-between group shadow-sm hover:shadow-xl">
-                <div className="space-y-4">
-                  {/* Top Location & Stamp */}
-                  <div className="flex items-center justify-between border-b border-line pb-3">
-                    <span className="font-mono text-[10px] text-accent font-bold uppercase tracking-wider">
-                      {member.location}
+              <div className="relative aspect-[3/4] w-full rounded-none overflow-hidden bg-surface-dark-card border border-line hover:border-accent transition-all duration-500 clip-chamfer-br group shadow-md hover:shadow-2xl">
+                {/* Background Headshot Portrait Image */}
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover object-top transition-all duration-700 ease-out group-hover:scale-110 group-hover:blur-md"
+                />
+
+                {/* Default State: Dark Gradient Bottom Overlay with Name & Role */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-between p-6 transition-opacity duration-300 group-hover:opacity-0 pointer-events-none">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[10px] text-white/90 font-bold bg-black/60 backdrop-blur-md px-2.5 py-1 border border-white/20">
+                      DIRECTOR 0{idx + 1}
                     </span>
-                    <span className="font-mono text-[9px] text-muted">DIRECTOR 0{idx + 1}</span>
+                    <span className="font-mono text-[10px] text-accent font-bold uppercase tracking-wider">
+                      {member.location.split(",")[0]}
+                    </span>
                   </div>
 
-                  {/* Name & Role */}
-                  <div>
-                    <h3 className="font-display font-black text-xl uppercase tracking-tight text-ink group-hover:text-accent transition-colors">
+                  <div className="space-y-1">
+                    <h3 className="font-display font-black text-xl text-white uppercase tracking-tight">
                       {member.name}
                     </h3>
-                    <span className="font-mono text-xs font-bold text-muted block mt-1">
+                    <p className="font-mono text-xs text-accent font-bold uppercase tracking-wider">
                       {member.role}
+                    </p>
+                    <span className="font-mono text-[10px] text-neutral-300 block pt-1">
+                      HOVER FOR CREDENTIALS & PRACTICE →
                     </span>
                   </div>
-
-                  {/* Credentials */}
-                  <div className="p-2.5 bg-paper border border-line font-mono text-[10px] text-ink/80 leading-relaxed">
-                    {member.credentials}
-                  </div>
-
-                  {/* Specialization */}
-                  <p className="font-body text-xs text-muted leading-relaxed">
-                    <strong className="text-ink font-semibold">Focus:</strong> {member.specialization}
-                  </p>
                 </div>
 
-                {/* Key Projects */}
-                <div className="pt-6 mt-6 border-t border-line space-y-2">
-                  <span className="font-mono text-[9px] text-muted uppercase tracking-wider block">
-                    KEY PORTFOLIO DEVELOPMENTS:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {member.projects.map((proj) => (
-                      <span
-                        key={proj}
-                        className="font-mono text-[10px] bg-paper px-2 py-0.5 border border-line text-ink"
-                      >
-                        {proj}
+                {/* Hover State: Full Frosted Glassmorphism Overlay with Deep Engineering Info */}
+                <div className="absolute inset-0 bg-black/80 backdrop-blur-lg p-6 flex flex-col justify-between text-white opacity-0 group-hover:opacity-100 transition-all duration-400 ease-out border border-white/20">
+                  <div className="space-y-3.5">
+                    {/* Top Metadata */}
+                    <div className="flex items-center justify-between border-b border-white/20 pb-2.5">
+                      <span className="font-mono text-[10px] text-accent font-bold uppercase tracking-wider">
+                        {member.location}
                       </span>
-                    ))}
+                      <span className="font-mono text-[9px] text-neutral-400">
+                        DIRECTOR 0{idx + 1}
+                      </span>
+                    </div>
+
+                    {/* Name & Role */}
+                    <div>
+                      <h3 className="font-display font-black text-lg sm:text-xl uppercase tracking-tight text-white">
+                        {member.name}
+                      </h3>
+                      <span className="font-mono text-xs text-accent font-bold block mt-0.5 uppercase">
+                        {member.role}
+                      </span>
+                    </div>
+
+                    {/* Academic Credentials */}
+                    <div className="p-2 bg-white/10 border border-white/15 font-mono text-[10px] text-neutral-200 leading-relaxed">
+                      {member.credentials}
+                    </div>
+
+                    {/* Specialization */}
+                    <p className="font-body text-xs text-neutral-300 leading-relaxed">
+                      <strong className="text-white font-semibold">Specialization:</strong>{" "}
+                      {member.specialization}
+                    </p>
+                  </div>
+
+                  {/* Key Portfolio Developments */}
+                  <div className="pt-3 border-t border-white/20 space-y-1.5">
+                    <span className="font-mono text-[9px] text-neutral-400 uppercase tracking-wider block">
+                      KEY PORTFOLIO DEVELOPMENTS:
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {member.projects.map((proj) => (
+                        <span
+                          key={proj}
+                          className="font-mono text-[9px] bg-white/15 px-2 py-0.5 border border-white/20 text-white font-bold"
+                        >
+                          {proj}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -36,6 +36,7 @@ export interface TeamMember {
   credentials: string;
   specialization: string;
   projects: string[];
+  image: string;
 }
 
 export interface CareerOpening {
@@ -297,6 +298,7 @@ export const siteContent: SiteContent = {
         credentials: "ETH Zurich Ph.D. • 22 Yrs Experience",
         specialization: "Long-Span Steel Diagrids & Seismic Dampers",
         projects: ["Meridian Tower", "Apex Manufacturing"],
+        image: "/images/team/elena-vance.jpg",
       },
       {
         name: "Marcus Thorne, PE",
@@ -305,6 +307,7 @@ export const siteContent: SiteContent = {
         credentials: "MIT M.Eng • 18 Yrs Experience",
         specialization: "Subterranean Diaphragm Slurry Walls & Deep Piles",
         projects: ["Eastline Transit", "Harbor District"],
+        image: "/images/team/marcus-thorne.jpg",
       },
       {
         name: "Dr. Aris Thorne, CEng",
@@ -313,6 +316,7 @@ export const siteContent: SiteContent = {
         credentials: "Imperial College London • 15 Yrs Experience",
         specialization: "Parametric FEA Modeling & Laser Scan As-Builts",
         projects: ["Meridian Tower", "North Corridor"],
+        image: "/images/team/aris-thorne.jpg",
       },
       {
         name: "Sarah Jenkins, P.Eng",
@@ -321,6 +325,7 @@ export const siteContent: SiteContent = {
         credentials: "UBC M.Sc. • 16 Yrs Experience",
         specialization: "Coastal Wave Surge & Sub-Arctic Tunnel Portals",
         projects: ["Harbor District", "North Corridor"],
+        image: "/images/team/sarah-jenkins.jpg",
       },
     ],
   },

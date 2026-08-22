@@ -1,111 +1,31 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import { siteContent } from "@/lib/content";
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
 
 export default function Footer() {
-  const [times, setTimes] = useState({
-    zurich: "--:--",
-    toronto: "--:--",
-    london: "--:--",
-  });
-  const [emailInput, setEmailInput] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  useEffect(() => {
-    const updateTimes = () => {
-      const now = new Date();
-      setTimes({
-        zurich: now.toLocaleTimeString("en-GB", { timeZone: "Europe/Zurich", hour: "2-digit", minute: "2-digit" }),
-        toronto: now.toLocaleTimeString("en-US", { timeZone: "America/Toronto", hour: "2-digit", minute: "2-digit" }),
-        london: now.toLocaleTimeString("en-GB", { timeZone: "Europe/London", hour: "2-digit", minute: "2-digit" }),
-      });
-    };
-
-    updateTimes();
-    const interval = setInterval(updateTimes, 10000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (emailInput.trim()) {
-      setSubscribed(true);
-      setTimeout(() => setSubscribed(false), 4000);
-      setEmailInput("");
-    }
-  };
-
-  const directorySections = [
-    {
-      title: "DISCIPLINES & SERVICES",
-      items: [
-        { label: "PLANNING & FEASIBILITY", href: "/#services" },
-        { label: "BUDGET & COST ESTIMATION", href: "/#services" },
-        { label: "4D BIM COORDINATION", href: "/#services" },
-        { label: "QUALITY & STRESS ASSURANCE", href: "/#services" },
-      ],
-    },
-    {
-      title: "PORTFOLIO & ASSETS",
-      items: [
-        { label: "SELECTED PROJECTS ARCHIVE", href: "/work" },
-        { label: "HARBOR DISTRICT (ROTTERDAM)", href: "/work/harbor-district" },
-        { label: "EASTLINE TRANSIT (TORONTO)", href: "/work/eastline-transit" },
-        { label: "MERIDIAN TOWER (LONDON)", href: "/work/meridian-tower" },
-      ],
-    },
-    {
-      title: "PRACTICE & FIRM",
-      items: [
-        { label: "METHODOLOGY // PROCESS", href: "/#process" },
-        { label: "AUDITED PERFORMANCE METRICS", href: "/#about" },
-        { label: "LEADERSHIP & DIRECTORS", href: "/#team" },
-        { label: "CAREERS & OPPORTUNITIES", href: "/#careers" },
-        { label: "PROJECT CONSULTATION & INQUIRY", href: "/contact" },
-      ],
-    },
+  const directoryItems = [
+    { number: "01", label: "SERVICES", href: "/#services", desc: "ENGINEERING & ADVISORY" },
+    { number: "02", label: "PROJECTS", href: "/work", desc: "SELECTED PORTFOLIO" },
+    { number: "03", label: "PROCESS", href: "/#process", desc: "4-PHASE METHODOLOGY" },
+    { number: "04", label: "TEAM", href: "/#team", desc: "SENIOR DIRECTORS" },
+    { number: "05", label: "CAREERS", href: "/#careers", desc: "OPEN OPPORTUNITIES" },
+    { number: "06", label: "CONTACT", href: "/contact", desc: "DIRECT PROCUREMENT" },
   ];
 
   return (
     <footer className="bg-paper text-ink border-t border-line relative z-20 overflow-hidden">
-      {/* Top Telemetry & Global Hubs Bar */}
-      <div className="border-b border-line bg-surface-light-card/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] text-muted">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-accent inline-block" />
-            <span className="font-bold text-ink uppercase tracking-wider">GLOBAL ENGINEERING HUBS:</span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-6 sm:gap-8">
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              <span>ZURICH (CET): <strong className="text-ink">{times.zurich}</strong></span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              <span>TORONTO (EST): <strong className="text-ink">{times.toronto}</strong></span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              <span>LONDON (GMT): <strong className="text-ink">{times.london}</strong></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Upper Grid Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-16">
+      {/* Main Editorial Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Monogram, Statement & Inquiry */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-10">
-            <div className="space-y-6">
-              {/* Brand Header */}
+          {/* Left Column: Brand Header, Massive Statement, & Action */}
+          <div className="lg:col-span-6 flex flex-col justify-between space-y-10 sm:space-y-12">
+            <div className="space-y-6 sm:space-y-8">
+              {/* Brand Lockup */}
               <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 bg-accent text-accent-text flex items-center justify-center font-display font-black text-xl clip-chamfer-br shadow-md">
+                <div className="w-10 h-10 bg-accent text-accent-text flex items-center justify-center font-display font-black text-xl clip-chamfer-br shadow-sm">
                   G
                 </div>
                 <div className="flex flex-col">
@@ -118,134 +38,96 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Editorial Statement */}
-              <h3 className="font-display font-black text-2xl sm:text-3xl text-ink tracking-tight uppercase leading-tight">
+              {/* Massive Editorial Headline */}
+              <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-ink uppercase tracking-tight leading-[1.02] max-w-xl">
                 {siteContent.footer.statement}
-              </h3>
+              </h2>
 
-              <p className="font-body text-sm text-muted leading-relaxed">
+              <p className="font-body text-sm sm:text-base text-muted max-w-md leading-relaxed">
                 Specialized in deep foundation engineering, long-span structural diagrids, and high-performance automated industrial logistics across Europe and North America.
               </p>
 
-              {/* Direct CTA */}
-              <div className="pt-2">
-                <Button href="/contact" variant="primary" size="md" chamfer>
+              {/* Action Button */}
+              <div>
+                <Button href="/contact" variant="primary" size="lg" chamfer>
                   GET IN TOUCH
                 </Button>
               </div>
-
-              {/* Newsletter / Project Brief Dispatch */}
-              <form onSubmit={handleSubscribe} className="space-y-2 pt-4">
-                <span className="font-mono text-[10px] text-muted uppercase tracking-wider block">
-                  TECHNICAL BRIEFINGS & CASE STUDIES:
-                </span>
-                <div className="flex gap-2">
-                  <input
-                    type="email"
-                    required
-                    value={emailInput}
-                    onChange={(e) => setEmailInput(e.target.value)}
-                    placeholder="Enter professional email"
-                    className="flex-1 px-3.5 py-2.5 bg-surface-light-card border border-line focus:border-accent text-ink font-mono text-xs outline-none transition-colors clip-chamfer-br"
-                  />
-                  <button
-                    type="submit"
-                    className="px-4 py-2.5 bg-ink text-paper hover:bg-accent hover:text-accent-text font-mono text-xs font-bold uppercase tracking-wider transition-colors clip-chamfer-br shrink-0"
-                  >
-                    {subscribed ? "SENT ✓" : "SUBSCRIBE"}
-                  </button>
-                </div>
-              </form>
             </div>
 
-            {/* Giant Monogram Mark */}
-            <div className="select-none pt-4 opacity-15 hover:opacity-30 transition-opacity">
-              <svg
-                className="w-32 h-32 text-muted"
-                viewBox="0 0 100 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <polygon
-                  points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30"
-                  stroke="currentColor"
-                  strokeWidth="6"
-                  fill="none"
-                />
-                <path
-                  d="M65 52H50V68H68V35H32V68"
-                  stroke="currentColor"
-                  strokeWidth="6"
-                  strokeLinecap="square"
-                />
-              </svg>
+            {/* Social Channels Strip */}
+            <div className="space-y-3 pt-4 border-t border-line">
+              <span className="font-mono text-[10px] text-muted uppercase tracking-wider block">
+                COMMUNICATIONS & CHANNELS
+              </span>
+              <div className="flex flex-wrap gap-2.5">
+                {siteContent.footer.socials.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-1.5 bg-surface-light-card border border-line hover:border-accent text-ink hover:text-accent font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 clip-chamfer-br"
+                  >
+                    {social.name} ↗
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Structured Architectural Directory */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6">
-            {directorySections.map((sec) => (
-              <div key={sec.title} className="space-y-4">
-                <div className="border-b border-line pb-2">
-                  <span className="font-mono text-[10px] text-accent font-bold tracking-wider uppercase block">
-                    {sec.title}
-                  </span>
-                </div>
+          {/* Right Column: Full-Width Divided Architectural Directory */}
+          <div className="lg:col-span-6 space-y-4">
+            <div className="flex items-center justify-between pb-2 border-b border-line">
+              <span className="font-mono text-xs text-muted font-bold tracking-widest uppercase">
+                INDEX / DIRECTORY
+              </span>
+              <span className="font-mono text-[10px] text-accent uppercase font-bold">
+                06 DESTINATIONS
+              </span>
+            </div>
 
-                <ul className="space-y-2">
-                  {sec.items.map((item) => (
-                    <li key={item.label}>
-                      <Link
-                        href={item.href}
-                        className="group flex items-center justify-between p-2 hover:bg-surface-light-card border border-transparent hover:border-line transition-all duration-200 clip-chamfer-br"
-                      >
-                        <span className="font-display font-bold text-xs uppercase tracking-tight text-ink group-hover:text-accent group-hover:translate-x-1 transition-all duration-200">
+            {/* Clean, Divided Directory Rows with Smooth Hover Slides */}
+            <ul className="divide-y divide-line border-b border-line">
+              {directoryItems.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="group flex items-center justify-between py-4 sm:py-5 px-3 hover:bg-surface-light-card/60 transition-all duration-300 clip-chamfer-br"
+                  >
+                    <div className="flex items-baseline gap-4 sm:gap-6">
+                      <span className="font-mono text-xs text-muted group-hover:text-accent font-bold transition-colors">
+                        {item.number}
+                      </span>
+                      <div>
+                        <span className="font-display font-black text-xl sm:text-2xl text-ink group-hover:text-accent tracking-tight uppercase group-hover:translate-x-2 inline-block transition-transform duration-300">
                           {item.label}
                         </span>
-                        <span className="font-mono text-[10px] text-muted group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100">
-                          →
+                        <span className="hidden sm:inline-block font-mono text-[10px] text-muted ml-3 uppercase">
+                          // {item.desc}
                         </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+                      </div>
+                    </div>
 
-      {/* Communications & Social Strip */}
-      <div className="border-t border-line bg-surface-light-card/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-muted uppercase">DIRECT CHANNELS:</span>
-            <div className="flex items-center gap-2">
-              {siteContent.footer.socials.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 bg-paper border border-line hover:border-accent text-ink hover:text-accent font-mono text-[10px] font-bold uppercase tracking-wider transition-all duration-200 clip-chamfer-br"
-                  aria-label={social.name}
-                >
-                  {social.name}
-                </a>
+                    <span className="font-mono text-sm text-muted group-hover:text-accent group-hover:translate-x-1 transition-all duration-300">
+                      →
+                    </span>
+                  </Link>
+                </li>
               ))}
-            </div>
-          </div>
-
-          <div className="font-mono text-[10px] text-muted">
-            HEADQUARTERS: BAHNHOFSTRASSE 45, 8001 ZÜRICH
+            </ul>
           </div>
         </div>
       </div>
 
-      {/* Bottom Legal / Copyright Bar */}
-      <div className="border-t border-line bg-surface-light-card">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-muted tracking-wider">
-          <div>{siteContent.footer.copyright}</div>
+      {/* Clean Bottom Coordinates & Legal Bar (No Copyright) */}
+      <div className="border-t border-line bg-surface-light-card/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-muted tracking-wider">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 bg-accent inline-block" />
+            <span>ZÜRICH // TORONTO // LONDON • ISO 19650 & ISO 45001 COMPLIANT</span>
+          </div>
+
           <div className="flex items-center gap-6">
             {siteContent.footer.legal.map((item) => (
               <Link
