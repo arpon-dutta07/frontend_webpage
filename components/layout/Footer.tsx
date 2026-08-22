@@ -16,13 +16,13 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="sticky bottom-0 z-0 w-full bg-[#121316] text-white overflow-hidden border-t border-white/10">
-      {/* Main Editorial Grid with Top Clearance for Fixed Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-16 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <footer className="sticky top-20 sm:top-24 lg:top-28 z-0 w-full bg-[#121316] text-white overflow-hidden border-t border-white/10">
+      {/* Main Editorial Grid with Top Margin Clearance Below Navbar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-16 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left Column: Brand Header, Massive Statement, & Action */}
-          <div className="lg:col-span-6 flex flex-col justify-between space-y-10 sm:space-y-12">
-            <div className="space-y-6 sm:space-y-8">
+          <div className="lg:col-span-6 flex flex-col justify-between space-y-8 sm:space-y-10">
+            <div className="space-y-6 sm:space-y-7">
               {/* Brand Lockup */}
               <div className="flex items-center gap-3.5">
                 <div className="w-10 h-10 bg-accent text-accent-text flex items-center justify-center font-display font-black text-xl clip-chamfer-br shadow-sm">
@@ -39,7 +39,7 @@ export default function Footer() {
               </div>
 
               {/* Massive Editorial Headline */}
-              <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight leading-[1.02] max-w-xl">
+              <h2 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white uppercase tracking-tight leading-[1.02] max-w-xl">
                 {siteContent.footer.statement}
               </h2>
 
@@ -93,14 +93,14 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="group flex items-center justify-between py-4 sm:py-5 px-3 hover:bg-white/5 transition-all duration-300 clip-chamfer-br"
+                    className="group flex items-center justify-between py-3.5 sm:py-4 px-3 hover:bg-white/5 transition-all duration-300 clip-chamfer-br"
                   >
                     <div className="flex items-baseline gap-4 sm:gap-6">
                       <span className="font-mono text-xs text-neutral-400 group-hover:text-accent font-bold transition-colors">
                         {item.number}
                       </span>
                       <div>
-                        <span className="font-display font-black text-xl sm:text-2xl text-white group-hover:text-accent tracking-tight uppercase group-hover:translate-x-2 inline-block transition-transform duration-300">
+                        <span className="font-display font-black text-lg sm:text-xl md:text-2xl text-white group-hover:text-accent tracking-tight uppercase group-hover:translate-x-2 inline-block transition-transform duration-300">
                           {item.label}
                         </span>
                         <span className="hidden sm:inline-block font-mono text-[10px] text-neutral-400 ml-3 uppercase">
