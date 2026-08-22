@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import SplitHeadline from "@/components/animation/SplitHeadline";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
@@ -8,41 +8,14 @@ import { siteContent } from "@/lib/content";
 
 export default function Hero() {
   const { hero } = siteContent;
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 
   const toggleMute = () => {
-    if (!iframeRef.current) return;
-    const command = isMuted ? "unMute" : "mute";
-    iframeRef.current.contentWindow?.postMessage(
-      JSON.stringify({ event: "command", func: command, args: "" }),
-      "*"
-    );
+    if (!videoRef.current) return;
+    videoRef.current.muted = !isMuted;
     setIsMuted(!isMuted);
   };
-
-  useEffect(() => {
-    const handleMessage = (e: MessageEvent) => {
-      try {
-        const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
-        if (data?.event === "onStateChange" && data?.info === 0) {
-          // Restart immediately before YouTube shows end screen
-          iframeRef.current?.contentWindow?.postMessage(
-            JSON.stringify({ event: "command", func: "seekTo", args: [0, true] }),
-            "*"
-          );
-          iframeRef.current?.contentWindow?.postMessage(
-            JSON.stringify({ event: "command", func: "playVideo", args: "" }),
-            "*"
-          );
-        }
-      } catch {
-        // ignore
-      }
-    };
-    window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
-  }, []);
 
   return (
     <section className="relative bg-paper text-ink pt-28 sm:pt-32 md:pt-36 border-b border-line overflow-hidden">
@@ -111,20 +84,20 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Horizontally Expanded & Taller Video Panel fitted inside exact diagonal shape */}
+          {/* Right Column: High-Definition 1080p Local Video inside exact diagonal shape */}
           <div className="lg:col-span-6 relative w-full mt-4 lg:mt-0">
-            {/* Desktop Diagonal Panel Wrapper - Horizontally & Vertically Expanded */}
+            {/* Desktop Diagonal Panel Wrapper - Preserved Shape + Horizontally & Vertically Expanded */}
             <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:h-[580px] xl:h-[630px] bg-surface-dark-card overflow-hidden md:[clip-path:polygon(0_0,100%_0,100%_100%,20%_100%)] border border-line shadow-2xl group">
-              {/* YouTube Video Player Background */}
-              <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none scale-125">
-                <iframe
-                  ref={iframeRef}
-                  src="https://www.youtube.com/embed/iLhYtTbnO0o?autoplay=1&mute=1&loop=1&playlist=iLhYtTbnO0o&controls=0&showinfo=0&rel=0&modestbranding=1&enablejsapi=1&playsinline=1"
-                  title="Architectural Engineering Video"
-                  className="w-[250%] h-[250%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                />
-              </div>
+              {/* Native 1080p HTML5 Video - Zero YouTube Overlays, Zero Pause/Rewind Icons */}
+              <video
+                ref={videoRef}
+                src="/Construction promo video - jaugrizau (1080p, h264).mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover object-center"
+              />
 
               {/* Tonal Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
@@ -136,7 +109,7 @@ export default function Hero() {
                 </Badge>
               </div>
 
-              {/* Pure Icon Mute / Unmute Button (Zero text as requested) */}
+              {/* Pure Icon Audio Mute / Unmute Button */}
               <button
                 onClick={toggleMute}
                 className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/80 hover:bg-accent text-white hover:text-accent-text backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 focus:outline-none cursor-pointer shadow-lg"
