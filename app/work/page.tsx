@@ -7,11 +7,107 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import MobileMenu from "@/components/layout/MobileMenu";
 import Footer from "@/components/layout/Footer";
+import FilterTabs from "@/components/ui/FilterTabs";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import FilterTabs from "@/components/ui/FilterTabs";
 import ScrollReveal from "@/components/animation/ScrollReveal";
-import { projectsData, Category } from "@/lib/projects";
+import { projectsData, Category, ProjectItem } from "@/lib/projects";
+
+// Interactive Project Card supporting 4-Image Bento Thumbnail Switching
+function ProjectBentoCard({ project }: { project: ProjectItem }) {
+  const allImages = [project.image, ...project.gallery].slice(0, 4);
+  const [activeImgIdx, setActiveImgIdx] = useState(0);
+
+  return (
+    <div className="group relative bg-surface-dark-card border border-line overflow-hidden transition-all duration-300 hover:border-accent shadow-sm hover:shadow-2xl clip-chamfer-br flex flex-col justify-between">
+      <Link href={`/work/${project.slug}`} className="block relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeImgIdx}
+            initial={{ opacity: 0.4, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0.4 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="relative w-full h-full"
+          >
+            <Image
+              src={allImages[activeImgIdx]}
+              alt={`${project.title} perspective ${activeImgIdx + 1}`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover object-center transition-all duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Top-Left Category Badge */}
+        <div className="absolute top-4 left-4 z-10">
+          <Badge variant="dark" className="backdrop-blur-md border border-white/20">
+            {project.category}
+          </Badge>
+        </div>
+
+        {/* Top-Right Year Tag */}
+        <div className="absolute top-4 right-4 z-10">
+          <span className="font-mono text-xs text-white font-bold bg-black/70 px-2.5 py-1 backdrop-blur-md border border-white/20">
+            {project.year}
+          </span>
+        </div>
+
+        {/* Bottom Title Bar */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between bg-gradient-to-t from-black/95 via-black/80 to-transparent">
+          <div>
+            <span className="font-mono text-[10px] text-accent uppercase font-bold block mb-0.5">
+              {project.location} // 0{activeImgIdx + 1} OF 04 PERSPECTIVES
+            </span>
+            <h3 className="font-display font-black text-lg sm:text-xl text-white uppercase tracking-tight group-hover:text-accent transition-colors">
+              {project.title}
+            </h3>
+          </div>
+
+          <div className="w-8 h-8 bg-accent text-accent-text flex items-center justify-center font-mono text-sm font-bold group-hover:translate-x-1 transition-transform clip-chamfer-br shrink-0">
+            →
+          </div>
+        </div>
+      </Link>
+
+      {/* 4-Image Interactive Bento Strip below main preview */}
+      <div className="grid grid-cols-4 gap-1.5 p-2 bg-black/80 backdrop-blur-md border-t border-line">
+        {allImages.map((imgSrc, idx) => {
+          const isActive = activeImgIdx === idx;
+          return (
+            <button
+              key={idx}
+              onMouseEnter={() => setActiveImgIdx(idx)}
+              onClick={(e) => {
+                e.preventDefault();
+                setActiveImgIdx(idx);
+              }}
+              className={`relative aspect-[16/10] w-full overflow-hidden clip-chamfer-br transition-all duration-200 cursor-pointer ${
+                isActive
+                  ? "ring-2 ring-accent border-accent scale-100 opacity-100 z-10"
+                  : "opacity-50 hover:opacity-100 border-white/20 hover:border-accent"
+              }`}
+              aria-label={`View perspective ${idx + 1} of ${project.title}`}
+            >
+              <Image
+                src={imgSrc}
+                alt={`${project.title} thumbnail ${idx + 1}`}
+                fill
+                sizes="10vw"
+                className="object-cover object-center"
+              />
+              <span className="absolute bottom-0.5 right-1 font-mono text-[8px] font-bold text-white bg-black/80 px-1">
+                0{idx + 1}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState<Category>("ALL");
@@ -34,7 +130,7 @@ export default function WorkPage() {
             <div className="flex items-center gap-3 mb-4">
               <Badge variant="accent">PORTFOLIO DIRECTORY</Badge>
               <span className="font-mono text-xs text-muted tracking-wider uppercase">
-                {projectsData.length} FEATURED ARCHITECTURAL ASSETS
+                {projectsData.length} FEATURED ARCHITECTURAL ASSETS (4 PERSPECTIVES EACH)
               </span>
             </div>
 
@@ -45,37 +141,33 @@ export default function WorkPage() {
                     SELECTED PROJECTS & CASE STUDIES.
                   </h1>
                 </ScrollReveal>
-              </div>
-
-              <div className="lg:col-span-4">
-                <p className="font-body text-fluid-body text-muted leading-relaxed">
-                  A curated archive of commercial skyscrapers, deep subterranean interchanges,
-                  and automated logistics facilities delivered with sub-millimeter BIM accuracy.
+                <p className="font-body text-fluid-body text-muted max-w-2xl leading-relaxed">
+                  Subterranean transit interchanges, deepwater maritime logistics hubs, high-bay automated distribution facilities, and long-span diagrid developments.
                 </p>
               </div>
-            </div>
 
-            {/* Quick Aggregate Stats Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-8 mt-8 border-t border-line">
-              <div className="p-4 bg-surface-light-card border border-line clip-chamfer-br">
-                <span className="font-mono text-[10px] text-muted uppercase block">ASSET VALUE</span>
-                <span className="font-display font-black text-xl sm:text-2xl text-ink">$2.5B+</span>
-                <span className="font-mono text-[9px] text-muted block mt-0.5">UNDER MANAGEMENT</span>
-              </div>
-              <div className="p-4 bg-surface-light-card border border-line clip-chamfer-br">
-                <span className="font-mono text-[10px] text-muted uppercase block">DISCIPLINES</span>
-                <span className="font-display font-black text-xl sm:text-2xl text-ink">03 CORE</span>
-                <span className="font-mono text-[9px] text-muted block mt-0.5">COMM / IND / INFRA</span>
-              </div>
-              <div className="p-4 bg-surface-light-card border border-line clip-chamfer-br">
-                <span className="font-mono text-[10px] text-muted uppercase block">DESIGN LIFE</span>
-                <span className="font-display font-black text-xl sm:text-2xl text-ink">100 YRS</span>
-                <span className="font-mono text-[9px] text-muted block mt-0.5">STRUCTURAL WARRANTY</span>
-              </div>
-              <div className="p-4 bg-surface-light-card border border-line clip-chamfer-br">
-                <span className="font-mono text-[10px] text-muted uppercase block">INCIDENTS</span>
-                <span className="font-display font-black text-xl sm:text-2xl text-accent">ZERO</span>
-                <span className="font-mono text-[9px] text-muted block mt-0.5">LOST-TIME RECORD</span>
+              {/* Quick Aggregate Stats Bar */}
+              <div className="lg:col-span-4 grid grid-cols-2 gap-3">
+                <div className="p-4 bg-surface-light-card border border-line clip-chamfer-br">
+                  <span className="font-mono text-[10px] text-muted uppercase block">ASSET VALUE</span>
+                  <span className="font-display font-black text-xl sm:text-2xl text-ink">$2.5B+</span>
+                  <span className="font-mono text-[9px] text-muted block mt-0.5">UNDER MANAGEMENT</span>
+                </div>
+                <div className="p-4 bg-surface-light-card border border-line clip-chamfer-br">
+                  <span className="font-mono text-[10px] text-muted uppercase block">DISCIPLINES</span>
+                  <span className="font-display font-black text-xl sm:text-2xl text-ink">03 CORE</span>
+                  <span className="font-mono text-[9px] text-muted block mt-0.5">COMM / IND / INFRA</span>
+                </div>
+                <div className="p-4 bg-surface-light-card border border-line clip-chamfer-br">
+                  <span className="font-mono text-[10px] text-muted uppercase block">DESIGN LIFE</span>
+                  <span className="font-display font-black text-xl sm:text-2xl text-ink">100 YRS</span>
+                  <span className="font-mono text-[9px] text-muted block mt-0.5">STRUCTURAL WARRANTY</span>
+                </div>
+                <div className="p-4 bg-surface-light-card border border-line clip-chamfer-br">
+                  <span className="font-mono text-[10px] text-muted uppercase block">INCIDENTS</span>
+                  <span className="font-display font-black text-xl sm:text-2xl text-accent">ZERO</span>
+                  <span className="font-mono text-[9px] text-muted block mt-0.5">LOST-TIME RECORD</span>
+                </div>
               </div>
             </div>
           </div>
@@ -102,101 +194,12 @@ export default function WorkPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="group"
                 >
-                  <Link
-                    href={`/work/${project.slug}`}
-                    className="block h-full bg-surface-light-card border border-line hover:border-accent transition-all duration-300 shadow-sm hover:shadow-xl clip-chamfer-br overflow-hidden flex flex-col justify-between"
-                  >
-                    <div>
-                      {/* Image Container with Zoom and Overlays */}
-                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-dark-card">
-                        <div className="relative w-full h-full">
-                          <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                        </div>
-
-                        {/* Top Badges */}
-                        <div className="absolute top-4 left-4 z-10">
-                          <Badge variant="dark" className="backdrop-blur-md">
-                            {project.category}
-                          </Badge>
-                        </div>
-
-                        <div className="absolute top-4 right-4 z-10">
-                          <span className="font-mono text-xs text-white font-bold bg-black/70 px-2.5 py-1 backdrop-blur-sm border border-white/15">
-                            {project.year}
-                          </span>
-                        </div>
-
-                        {/* Image Bottom Bar */}
-                        <div className="absolute bottom-3 left-4 right-4 z-10 flex items-center justify-between font-mono text-[10px] text-white/90">
-                          <span>{project.location}</span>
-                          <span className="text-accent font-bold">{project.value}</span>
-                        </div>
-                      </div>
-
-                      {/* Content Body */}
-                      <div className="p-6 space-y-3">
-                        <span className="font-mono text-[10px] text-muted uppercase tracking-wider block">
-                          {project.typology}
-                        </span>
-
-                        <h2 className="font-display font-black text-2xl uppercase tracking-tight text-ink group-hover:text-accent transition-colors">
-                          {project.title}
-                        </h2>
-
-                        <p className="font-body text-xs text-muted leading-relaxed line-clamp-3">
-                          {project.overview}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Footer Row */}
-                    <div className="px-6 py-4 border-t border-line flex items-center justify-between bg-paper/50">
-                      <div className="flex flex-col">
-                        <span className="font-mono text-[9px] text-muted uppercase">CLIENT</span>
-                        <span className="font-mono text-xs font-bold text-ink truncate max-w-[170px]">
-                          {project.client}
-                        </span>
-                      </div>
-
-                      <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-ink group-hover:text-accent transition-colors">
-                        <span>VIEW CASE STUDY</span>
-                        <span className="group-hover:translate-x-1 transition-transform">→</span>
-                      </div>
-                    </div>
-                  </Link>
+                  <ProjectBentoCard project={project} />
                 </motion.div>
               ))}
             </AnimatePresence>
           </motion.div>
-
-          {/* Bottom Consultation Strip */}
-          <div className="mt-20 p-8 sm:p-12 bg-surface-dark text-white border border-line-dark clip-chamfer-br flex flex-col sm:flex-row sm:items-center justify-between gap-8">
-            <div className="space-y-2 max-w-2xl">
-              <div className="flex items-center gap-2 font-mono text-xs text-accent">
-                <span className="w-2 h-2 bg-accent inline-block" />
-                <span>CUSTOM STRUCTURAL FEASIBILITY</span>
-              </div>
-              <h2 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight text-white">
-                HAVE A COMPLEX ENGINEERING BRIEF?
-              </h2>
-              <p className="font-body text-sm text-muted-on-dark leading-relaxed">
-                Connect with our senior engineering directors in Zurich, Toronto, and London to evaluate structural parameters, geotechnical conditions, and construction sequencing.
-              </p>
-            </div>
-
-            <Button href="/contact" variant="primary" size="lg" chamfer className="shrink-0">
-              REQUEST CONSULTATION
-            </Button>
-          </div>
         </div>
       </main>
 

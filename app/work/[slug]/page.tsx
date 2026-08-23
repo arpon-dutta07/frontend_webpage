@@ -271,40 +271,76 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
           </div>
 
-          {/* Architectural Perspectives Gallery */}
+          {/* Architectural Perspectives Bento Gallery (4 Images per Project) */}
           <div className="mb-16">
             <div className="flex items-center justify-between border-b border-line pb-4 mb-8">
               <div className="flex items-center gap-3">
-                <Badge variant="accent">DOCUMENTATION</Badge>
+                <Badge variant="accent">PERSPECTIVE DOCUMENTATION</Badge>
                 <h2 className="font-display font-bold text-xl uppercase text-ink">
-                  ARCHITECTURAL & STRUCTURAL PERSPECTIVES
+                  4-IMAGE ARCHITECTURAL BENTO GALLERY
                 </h2>
               </div>
-              <span className="font-mono text-xs text-muted hidden sm:inline">
-                HIGH-RESOLUTION ASSETS
+              <span className="font-mono text-xs text-muted hidden sm:inline uppercase">
+                04 DISTINCT PERSPECTIVE ASSETS
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {project.gallery.map((imgSrc, idx) => (
-                <div
-                  key={idx}
-                  className="relative aspect-[4/3] bg-surface-dark-card border border-line overflow-hidden clip-chamfer-br group shadow-md"
-                >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+              {/* Perspective 01: Primary Hero Elevation (Top Left 7 Cols) */}
+              <div className="lg:col-span-7 relative aspect-[16/10] sm:aspect-[4/3] lg:aspect-auto lg:h-[460px] bg-surface-dark-card border border-line overflow-hidden clip-chamfer-br group shadow-xl">
+                <Image
+                  src={project.image}
+                  alt={`${project.title} perspective 01`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between font-mono text-xs text-white">
+                  <span className="font-bold text-accent">PERSPECTIVE 01 // PRIMARY ELEVATION & FACADE</span>
+                  <span className="bg-black/70 px-2.5 py-1 border border-white/20 text-[10px] uppercase font-bold">MAIN ASSET</span>
+                </div>
+              </div>
+
+              {/* Perspective 02 & 03: Stacked Right Column (Top Right 5 Cols) */}
+              <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+                {project.gallery.slice(0, 2).map((imgSrc, idx) => (
+                  <div
+                    key={idx}
+                    className="relative aspect-[16/10] sm:aspect-auto lg:h-[220px] bg-surface-dark-card border border-line overflow-hidden clip-chamfer-br group shadow-md"
+                  >
+                    <Image
+                      src={imgSrc}
+                      alt={`${project.title} perspective 0${idx + 2}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity" />
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[11px] text-white">
+                      <span className="font-bold">PERSPECTIVE 0{idx + 2} // {idx === 0 ? "STRUCTURAL DIAGRID & STEEL TRUSS" : "SUBTERRANEAN SLAB & FOUNDATION"}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Perspective 04: Full Width Panoramic Anchor (Bottom 12 Cols) */}
+              {project.gallery[2] && (
+                <div className="lg:col-span-12 relative aspect-[21/9] sm:aspect-[3/1] lg:h-[240px] bg-surface-dark-card border border-line overflow-hidden clip-chamfer-br group shadow-xl">
                   <Image
-                    src={imgSrc}
-                    alt={`${project.title} perspective view ${idx + 1}`}
+                    src={project.gallery[2]}
+                    alt={`${project.title} perspective 04`}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="100vw"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] text-white">
-                    <span>PERSPECTIVE 0{idx + 1}</span>
-                    <span className="text-accent uppercase">INSPECT →</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between font-mono text-xs text-white">
+                    <span className="font-bold text-accent">PERSPECTIVE 04 // COMPLETED HANDOVER & SITE AERIAL</span>
+                    <span className="bg-black/70 px-2.5 py-1 border border-white/20 text-[10px] uppercase font-bold">FULL PANORAMA</span>
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </div>
 
